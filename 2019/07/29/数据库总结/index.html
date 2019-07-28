@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>happylin</title>
+  <title>数据库总结 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mysql数据库的发展JDBC使用步骤  注册驱动  1Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  获取连接   1Connection conn = DriverManger.getConnection(&quot;jdbc:mysql://主机:端口/数据库&quot;,&quot;数据库用户名&quot;,&quot;数据库密码&quot;);   获取Statement对象  1Statement stmt =">
+  <meta name="description" content="Mysql数据库的发展JDBC使用步骤  注册驱动  1Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  获取连接  1Connection conn = DriverManger.getConnection(&quot;jdbc:mysql://主机:端口/数据库&quot;,&quot;数据库用户名&quot;,&quot;数据库密码&quot;);  获取Statement对象  1Statement stmt = c">
 <meta name="keywords" content="java，python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="happylin">
-<meta property="og:url" content="http://yoursite.com/2019/07/28/数据库总结/index.html">
+<meta property="og:title" content="数据库总结">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/数据库总结/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="Mysql数据库的发展JDBC使用步骤  注册驱动  1Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  获取连接   1Connection conn = DriverManger.getConnection(&quot;jdbc:mysql://主机:端口/数据库&quot;,&quot;数据库用户名&quot;,&quot;数据库密码&quot;);   获取Statement对象  1Statement stmt =">
+<meta property="og:description" content="Mysql数据库的发展JDBC使用步骤  注册驱动  1Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  获取连接  1Connection conn = DriverManger.getConnection(&quot;jdbc:mysql://主机:端口/数据库&quot;,&quot;数据库用户名&quot;,&quot;数据库密码&quot;);  获取Statement对象  1Statement stmt = c">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-07-28T15:25:33.108Z">
+<meta property="og:updated_time" content="2019-07-28T23:18:59.784Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happylin">
-<meta name="twitter:description" content="Mysql数据库的发展JDBC使用步骤  注册驱动  1Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  获取连接   1Connection conn = DriverManger.getConnection(&quot;jdbc:mysql://主机:端口/数据库&quot;,&quot;数据库用户名&quot;,&quot;数据库密码&quot;);   获取Statement对象  1Statement stmt =">
+<meta name="twitter:title" content="数据库总结">
+<meta name="twitter:description" content="Mysql数据库的发展JDBC使用步骤  注册驱动  1Class.forName(&quot;com.mysql.jdbc.Driver&quot;);  获取连接  1Connection conn = DriverManger.getConnection(&quot;jdbc:mysql://主机:端口/数据库&quot;,&quot;数据库用户名&quot;,&quot;数据库密码&quot;);  获取Statement对象  1Statement stmt = c">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -156,6 +156,36 @@
             <article id="post-数据库总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据库总结
+    </h1>
+  
+
+
+        
+
+        
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+      
+
+
+
+        
+        <a href="/2019/07/29/数据库总结/" class="archive-article-date">
+  	<time datetime="2019-07-28T23:18:59.783Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Mysql数据库的发展"><a href="#Mysql数据库的发展" class="headerlink" title="Mysql数据库的发展"></a>Mysql数据库的发展</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p><strong>使用步骤</strong></p>
@@ -164,16 +194,11 @@
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>获取连接</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManger.getConnection(<span class="string">"jdbc:mysql://主机:端口/数据库"</span>,<span class="string">"数据库用户名"</span>,<span class="string">"数据库密码"</span>);</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManger.getConnection(<span class="string">"jdbc:mysql://主机:端口/数据库"</span>,<span class="string">"数据库用户名"</span>,<span class="string">"数据库密码"</span>);</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>获取Statement对象</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement stmt = conn.createStatement();</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
+<li><p>获取Statement对象</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement stmt = conn.createStatement();</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>使用Statement对象执行sql语句</p>
 <ol>
 <li><p>增删改：</p>
@@ -357,7 +382,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/28/数据库总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/29/数据库总结/" alt="微信分享二维码">
     </div>
 </div>
 

@@ -157,6 +157,28 @@
     <article id="post-数据库总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/29/数据库总结/">数据库总结</a>
+    </h1>
+  
+
+
+        
+
+        
+
+
+
+        
+        <a href="/2019/07/29/数据库总结/" class="archive-article-date">
+  	<time datetime="2019-07-28T23:18:59.783Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Mysql数据库的发展"><a href="#Mysql数据库的发展" class="headerlink" title="Mysql数据库的发展"></a>Mysql数据库的发展</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p><strong>使用步骤</strong></p>
@@ -165,16 +187,11 @@
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>获取连接</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManger.getConnection(<span class="string">"jdbc:mysql://主机:端口/数据库"</span>,<span class="string">"数据库用户名"</span>,<span class="string">"数据库密码"</span>);</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManger.getConnection(<span class="string">"jdbc:mysql://主机:端口/数据库"</span>,<span class="string">"数据库用户名"</span>,<span class="string">"数据库密码"</span>);</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>获取Statement对象</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement stmt = conn.createStatement();</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
+<li><p>获取Statement对象</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement stmt = conn.createStatement();</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>使用Statement对象执行sql语句</p>
 <ol>
 <li><p>增删改：</p>
@@ -312,7 +329,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/28/数据库总结/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/29/数据库总结/">展开全文 >></a>
         </p>
       
 
