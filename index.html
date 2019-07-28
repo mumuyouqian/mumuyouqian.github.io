@@ -154,6 +154,194 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据库总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mysql数据库的发展"><a href="#Mysql数据库的发展" class="headerlink" title="Mysql数据库的发展"></a>Mysql数据库的发展</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p><strong>使用步骤</strong></p>
+<ol>
+<li><p>注册驱动</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取连接</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManger.getConnection(<span class="string">"jdbc:mysql://主机:端口/数据库"</span>,<span class="string">"数据库用户名"</span>,<span class="string">"数据库密码"</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>获取Statement对象</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement stmt = conn.createStatement();</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>使用Statement对象执行sql语句</p>
+<ol>
+<li><p>增删改：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = stmt.executeUpdate(<span class="string">"sql语句"</span>)；</span><br><span class="line">i为执行这条sql语句改变的行数</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = stmt.executeQuery(<span class="string">"sql语句"</span>)；</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>释放资源:<em>在java中,释放资源时或者关闭流时,按照先创建后关闭的原则</em></p>
+<ol>
+<li><p>增删改:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stmt.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rs.close();</span><br><span class="line">stmt.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="JDBC的缺点"><a href="#JDBC的缺点" class="headerlink" title="JDBC的缺点"></a>JDBC的缺点</h4><ol>
+<li>操作数据库都需要创建连接,操作完成还需要关闭连接</li>
+<li>创建连接和关闭连接可能比执行sql需要的时间都长</li>
+<li>一个网站需要高频繁访问时数据库,如果短时间频繁的访问数据库服务器,就容易造成服务器的宕机</li>
+</ol>
+<h3 id="连接池"><a href="#连接池" class="headerlink" title="连接池"></a>连接池</h3><p>为什么要使用连接池？</p>
+<p>优点:连接池中保存了一些数据库连接,这些连接时可以重复的.解省了数据库资源的消耗。</p>
+<h4 id="c3p0"><a href="#c3p0" class="headerlink" title="c3p0"></a>c3p0</h4><h5 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h5><ol>
+<li><p>导包</p>
+</li>
+<li><p>编写连接池配置文件c3p0-config.xml,配置对应的参数</p>
+</li>
+<li><p>创建连接池对象</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ComPooledDataSource cpds = <span class="keyword">new</span> ComPooledDataSource();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从连接池中获取对象</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn = cpds.getConnection();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取发送sql语句的对象</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stmt = cpds.prepareStatement(sql)；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>操作数据库</p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stmt.executeUpdate; stmt.executeQuery;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>释放资源</p>
+</li>
+</ol>
+<h4 id="Druid"><a href="#Druid" class="headerlink" title="Druid"></a>Druid</h4><h5 id="使用步骤-1"><a href="#使用步骤-1" class="headerlink" title="使用步骤"></a>使用步骤</h5><ol>
+<li><p>导包</p>
+</li>
+<li><p>创建properties文件,设置对应参数</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url=jdbc:mysql:<span class="comment">//localhost:3306/数据库名</span></span><br><span class="line">username=用户名</span><br><span class="line">password=密码</span><br><span class="line">driverClassName=com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加载properties文件到Properties对象中</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Properties info = <span class="keyword">new</span> Properties();</span><br><span class="line">info.load(<span class="keyword">new</span> fileInputStream(<span class="string">"配置文件名.properties"</span>))；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建连接池,使用配置文件中的参数</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DataSource dataSource = DruidDataSourceFactory.createDataSource(info);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从连接池中获取连接</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn = dataSource.getConnection();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取发送sql语句对象</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pstmt = conn.prepareStatement(<span class="string">"sql语句"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>操作数据库</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patmt.executeQuery();pstmt.executeUpdate();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>释放资源</p>
+</li>
+</ol>
+<h3 id="JdbcTemplate"><a href="#JdbcTemplate" class="headerlink" title="JdbcTemplate"></a>JdbcTemplate</h3><p>优点:</p>
+<ol>
+<li>将查询到的数据直接封装成对象</li>
+<li>无需手动释放资源</li>
+</ol>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li><p>创建JdbcTemplate类的对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JdbcTemplate jdbcTemplate = <span class="keyword">new</span> JdbcTemplate(连接池)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写sql语句</p>
+</li>
+<li><p>执行sql语句</p>
+<ol>
+<li><p>增删改</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> row = jdbcTemplate.update(<span class="string">"sql语句"</span>,占位符);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查</p>
+<ol>
+<li><p>单表</p>
+<ol>
+<li><p>单个对象</p>
+<ol>
+<li><p>基本数据类型</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbcTemplate.queryForObject(<span class="string">"sql语句"</span>,包装类型.class,占位符)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pojo对象</p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbcTemplate.queryForObject(<span class="string">"sql语句"</span>,<span class="keyword">new</span> BeanPropertiesRowMapper&lt;&gt;(pojo对象.class),占位符)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>多个对象</p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jabc.query(<span class="string">"sql语句"</span>,<span class="keyword">new</span> BeanPropertyRowMapper&lt;&gt;(pojo对象.class),占位符)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>多表</p>
+<ol>
+<li><p>单条数据</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">返回值大多为Map&lt;String,Object&gt;</span><br><span class="line">jdbcTemplate.queryForMap(“sql语句”, 占位符);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>多条数据</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">返回值为List&lt;Map&lt;String,Object&gt;&gt;</span><br><span class="line">jdbcTemplate.queryForList(“sql语句”, 占位符);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/28/数据库总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
