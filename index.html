@@ -174,7 +174,7 @@
 
         
         <a href="/2019/07/29/数据库总结/" class="archive-article-date">
-  	<time datetime="2019-07-28T23:18:59.783Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
+  	<time datetime="2019-07-28T23:25:13.099Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
 </a>
         
       </header>
@@ -291,7 +291,7 @@
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbcTemplate.queryForObject(<span class="string">"sql语句"</span>,包装类型.class,占位符)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>pojo对象</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbcTemplate.queryForObject(<span class="string">"sql语句"</span>,<span class="keyword">new</span> BeanPropertiesRowMapper&lt;&gt;(pojo对象.class),占位符)</span><br></pre></td></tr></table></figure>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbcTemplate.queryForObject(<span class="string">"sql语句"</span>,<span class="keyword">new</span> BeanPropertyRowMapper&lt;&gt;(pojo对象.class),占位符)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
