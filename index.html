@@ -174,14 +174,14 @@
 
         
         <a href="/2019/07/29/数据库总结/" class="archive-article-date">
-  	<time datetime="2019-07-28T23:25:13.099Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
+  	<time datetime="2019-07-28T23:40:46.356Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Mysql数据库的发展"><a href="#Mysql数据库的发展" class="headerlink" title="Mysql数据库的发展"></a>Mysql数据库的发展</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p><strong>使用步骤</strong></p>
+        <h2 id="JAVA连接Mysql数据库的发展"><a href="#JAVA连接Mysql数据库的发展" class="headerlink" title="JAVA连接Mysql数据库的发展"></a>JAVA连接Mysql数据库的发展</h2><h3 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h3><p><strong>使用步骤</strong></p>
 <ol>
 <li><p>注册驱动</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br></pre></td></tr></table></figure>
@@ -245,7 +245,7 @@
 <li><p>导包</p>
 </li>
 <li><p>创建properties文件,设置对应参数</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url=jdbc:mysql:<span class="comment">//localhost:3306/数据库名</span></span><br><span class="line">username=用户名</span><br><span class="line">password=密码</span><br><span class="line">driverClassName=com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url=jdbc:mysql:<span class="comment">//主机:端口/数据库名</span></span><br><span class="line">username=用户名</span><br><span class="line">password=密码</span><br><span class="line">driverClassName=com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>加载properties文件到Properties对象中</p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Properties info = <span class="keyword">new</span> Properties();</span><br><span class="line">info.load(<span class="keyword">new</span> fileInputStream(<span class="string">"配置文件名.properties"</span>))；</span><br></pre></td></tr></table></figure>
@@ -260,7 +260,7 @@
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pstmt = conn.prepareStatement(<span class="string">"sql语句"</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>操作数据库</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">patmt.executeQuery();pstmt.executeUpdate();</span><br></pre></td></tr></table></figure>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pstmt.executeQuery();pstmt.executeUpdate();</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>释放资源</p>
 </li>
@@ -296,7 +296,7 @@
 </ol>
 </li>
 <li><p>多个对象</p>
-   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jabc.query(<span class="string">"sql语句"</span>,<span class="keyword">new</span> BeanPropertyRowMapper&lt;&gt;(pojo对象.class),占位符)</span><br></pre></td></tr></table></figure>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbc.query(<span class="string">"sql语句"</span>,<span class="keyword">new</span> BeanPropertyRowMapper&lt;&gt;(pojo对象.class),占位符)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
@@ -308,13 +308,126 @@
 <li><p>多条数据</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">返回值为List&lt;Map&lt;String,Object&gt;&gt;</span><br><span class="line">jdbcTemplate.queryForList(“sql语句”, 占位符);</span><br></pre></td></tr></table></figure>
 
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><p><strong>优点</strong>：</p>
+<ol>
+<li>支持自定义sql,存储过程,高级映射</li>
+<li>实现自动对sql参数的设置</li>
+<li>自动对结果集进行解析和封装</li>
+<li>通过对xml或注解进行配置和映射,大大减少了代码量</li>
+<li>数据源的连接信息通过配置文件进行配置</li>
+</ol>
+<h4 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h4><ol>
+<li><p>配置文件</p>
+<ol>
+<li>全局配置文件:mybatis-config.xml 作用:配置数据源(配置数据库连接信息)</li>
+<li>映射文件:XxxMapper.xml 作用:配置sql语句、参数、结果集、数据类型</li>
+</ol>
+</li>
+<li><p>SqlSessionFactory</p>
+<p>   作用:获取SqlSession</p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream inputStream = Resources.getResourceAsStream(<span class="string">"mybatis-config.xml"</span>);</span><br><span class="line">SqlSessionFactory sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">SqlSession sqlSession = sqlSessionFactory.openSession();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SqlSession</p>
+<p> 作用:执行CRUD操作,线程不安全</p>
+</li>
+<li><p>Executor</p>
+<p> 执行器 :sqlSession通过调用它来完成具体的CRUD</p>
+<ol>
+<li><p>查</p>
+<ol>
+<li><p>查一个对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.selectone(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查一列对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.selectList(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>增</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.insert(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.delete(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.update(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 </li>
 </ol>
+<h4 id="完整的CRUD操作"><a href="#完整的CRUD操作" class="headerlink" title="完整的CRUD操作"></a>完整的CRUD操作</h4><ol>
+<li><p>配置文件</p>
+<ol>
+<li>全局配置文件:mybatis-config.xml 作用:配置数据源(配置数据库连接信息)</li>
+<li>映射文件:XxxMapper.xml 作用:配置sql语句、参数、结果集、数据类型</li>
+</ol>
+</li>
+<li><p>创建接口和实现类</p>
+</li>
+<li><p>SqlSessionFactory</p>
+<p>作用:获取SqlSession</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">InputStream inputStream = Resources.getResourceAsStream(<span class="string">"mybatis-config.xml"</span>);</span><br><span class="line">SqlSessionFactory sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">SqlSession sqlSession = sqlSessionFactory.openSession(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SqlSession</p>
+<p>作用:执行CRUD操作,线程不安全</p>
+</li>
+<li><p>Executor</p>
+<p>执行器 :sqlSession通过调用它来完成具体的CRUD</p>
+<ol>
+<li><p>查</p>
+<ol>
+<li><p>查一个对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.selectone(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查一列对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.selectList(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+</li>
+<li><p>增</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.insert(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.delete(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>改</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlsession.update(XxxMapper.id,占位符)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="Mapper动态代理方式"><a href="#Mapper动态代理方式" class="headerlink" title="Mapper动态代理方式"></a>Mapper动态代理方式</h4><p><strong>只写接口，不书写实现类，只编写Mapper.xml即可</strong></p>
+<p><strong>Mapper接口的动态代理实现，需要遵循以下规范：</strong></p>
+<ol>
+<li>映射文件中的命名空间（名称空间）与Mapper接口的全路径一致</li>
+<li>映射文件中的statement的Id与Mapper接口的方法名保持一致</li>
+<li>映射文件中的statement的ResultType必须和mapper接口方法的返回类型一致（即使不采用动态代理，也要一致）</li>
+<li>映射文件中的statement的parameterType必须和mapper接口方法的参数类型一致（不一定，该参数可省略）</li>
+</ol>
+<h5 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h5><ol>
+<li><p>配置文件</p>
+<ol>
+<li>全局配置文件:mybatis-config.xml 作用:配置数据源(配置数据库连接信息)</li>
+<li>映射文件:XxxMapper.xml 作用:配置sql语句、参数、结果集、数据类型</li>
+</ol>
+</li>
+<li><p>创建接口</p>
+</li>
+<li><p>生成一个代理的实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">InputStream inputStream = Resources.getResourceAsStream(<span class="string">"mybatis-config.xml"</span>);</span><br><span class="line">SqlSessionFactory sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">SqlSession sqlSession = sqlSessionFactory.openSession(<span class="keyword">true</span>);</span><br><span class="line">XxxMapper = sqlSession.getMapper(XxxMapper.class);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行语句</p>
+<p>Xxxmapper.接口方法名(参数);</p>
 </li>
 </ol>
 
