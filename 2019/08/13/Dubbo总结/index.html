@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>happylin</title>
+  <title>Dubbo | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title:Dubbo浅谈Dubbo 什么是Dubbo Dubbo是分布式RPC框架  Dubbo的三大核心能力  面向接口的远程方法调用 智能容错和负载均衡 服务自动注册和发现   Dubbo架构图   调用关系说明:  服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在启动时，向注册中心订阅自己所需的服务。 注册中心返回服务提供者地址列">
+  <meta name="description" content="浅谈Dubbo 什么是Dubbo Dubbo是分布式RPC框架  Dubbo的三大核心能力  面向接口的远程方法调用 智能容错和负载均衡 服务自动注册和发现   Dubbo架构图   调用关系说明:  服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在启动时，向注册中心订阅自己所需的服务。 注册中心返回服务提供者地址列表给消费者，如果有变更，">
 <meta name="keywords" content="java，python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="happylin">
+<meta property="og:title" content="Dubbo">
 <meta property="og:url" content="http://yoursite.com/2019/08/13/Dubbo总结/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="title:Dubbo浅谈Dubbo 什么是Dubbo Dubbo是分布式RPC框架  Dubbo的三大核心能力  面向接口的远程方法调用 智能容错和负载均衡 服务自动注册和发现   Dubbo架构图   调用关系说明:  服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在启动时，向注册中心订阅自己所需的服务。 注册中心返回服务提供者地址列">
+<meta property="og:description" content="浅谈Dubbo 什么是Dubbo Dubbo是分布式RPC框架  Dubbo的三大核心能力  面向接口的远程方法调用 智能容错和负载均衡 服务自动注册和发现   Dubbo架构图   调用关系说明:  服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在启动时，向注册中心订阅自己所需的服务。 注册中心返回服务提供者地址列表给消费者，如果有变更，">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="c:%5CUsers%5C%E6%9E%97%E6%AC%A2%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565612828036.png">
-<meta property="og:updated_time" content="2019-08-13T05:16:34.095Z">
+<meta property="og:updated_time" content="2019-08-13T05:20:10.071Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happylin">
-<meta name="twitter:description" content="title:Dubbo浅谈Dubbo 什么是Dubbo Dubbo是分布式RPC框架  Dubbo的三大核心能力  面向接口的远程方法调用 智能容错和负载均衡 服务自动注册和发现   Dubbo架构图   调用关系说明:  服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在启动时，向注册中心订阅自己所需的服务。 注册中心返回服务提供者地址列">
+<meta name="twitter:title" content="Dubbo">
+<meta name="twitter:description" content="浅谈Dubbo 什么是Dubbo Dubbo是分布式RPC框架  Dubbo的三大核心能力  面向接口的远程方法调用 智能容错和负载均衡 服务自动注册和发现   Dubbo架构图   调用关系说明:  服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在启动时，向注册中心订阅自己所需的服务。 注册中心返回服务提供者地址列表给消费者，如果有变更，">
 <meta name="twitter:image" content="c:%5CUsers%5C%E6%9E%97%E6%AC%A2%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1565612828036.png">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
@@ -158,10 +158,39 @@
             <article id="post-Dubbo总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Dubbo
+    </h1>
+  
+
+
+        
+
+        
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+      
+
+
+
+        
+        <a href="/2019/08/13/Dubbo总结/" class="archive-article-date">
+  	<time datetime="2019-08-13T05:19:27.532Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-13</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-Dubbo"><a href="#title-Dubbo" class="headerlink" title="title:Dubbo"></a>title:Dubbo</h2><h3 id="浅谈Dubbo"><a href="#浅谈Dubbo" class="headerlink" title="浅谈Dubbo"></a>浅谈Dubbo</h3><ol>
+        <h3 id="浅谈Dubbo"><a href="#浅谈Dubbo" class="headerlink" title="浅谈Dubbo"></a>浅谈Dubbo</h3><ol>
 <li><p>什么是Dubbo</p>
 <p>Dubbo是分布式RPC框架</p>
 </li>
