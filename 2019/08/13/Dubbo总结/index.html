@@ -17,7 +17,7 @@
 <meta property="og:description" content="浅谈Dubbo 什么是Dubbo Dubbo是分布式RPC框架  Dubbo的三大核心能力  面向接口的远程方法调用 智能容错和负载均衡 服务自动注册和发现   Dubbo架构图   调用关系说明:  服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在启动时，向注册中心订阅自己所需的服务。 注册中心返回服务提供者地址列表给消费者，如果有变更，">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/m9oTCq.png">
-<meta property="og:updated_time" content="2019-08-13T11:30:01.071Z">
+<meta property="og:updated_time" content="2019-08-13T23:12:48.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dubbo">
 <meta name="twitter:description" content="浅谈Dubbo 什么是Dubbo Dubbo是分布式RPC框架  Dubbo的三大核心能力  面向接口的远程方法调用 智能容错和负载均衡 服务自动注册和发现   Dubbo架构图   调用关系说明:  服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在启动时，向注册中心订阅自己所需的服务。 注册中心返回服务提供者地址列表给消费者，如果有变更，">
@@ -216,6 +216,8 @@
 </li>
 <li><p>Dubbo使用步骤</p>
 <ol>
+<li></li>
+<li><ol>
 <li><p>服务端</p>
 <ol>
 <li><p>定义一个接口，如：</p>
@@ -231,7 +233,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--指定暴露服务的端口，如果不指定默认为20880--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">"dubbo"</span> <span class="attr">port</span>=<span class="string">"20880"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 指定应用名称 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"health_service"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--指定服务注册中心地址--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://192.168.124.128:2181"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--批量扫描--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:annotation</span> <span class="attr">package</span>=<span class="string">"com.itheima.service"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>@service注解可以写成xml配置文件的形式</p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--指定暴露服务的端口，如果不指定默认为20880--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">"dubbo"</span> <span class="attr">port</span>=<span class="string">"20880"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 指定应用名称 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"health_service"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--指定服务注册中心地址--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://192.168.124.128:2181"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 注册一个Bean --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"checkitemService"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.dubbo.service.impl.CheckitemServiceImpl"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 声明需要暴露的服务接口 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">"cn.itcast.dubbo.service.CheckitemService"</span> <span class="attr">ref</span>=<span class="string">"checkitemService"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--指定暴露服务的端口，如果不指定默认为20880--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:protocol</span> <span class="attr">name</span>=<span class="string">"dubbo"</span> <span class="attr">port</span>=<span class="string">"20880"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 指定应用名称 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:application</span> <span class="attr">name</span>=<span class="string">"health_service"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--指定服务注册中心地址--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:registry</span> <span class="attr">address</span>=<span class="string">"zookeeper://192.168.124.128:2181"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 注册一个Bean --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"checkitemService"</span> <span class="attr">class</span>=<span class="string">"cn.itcast.dubbo.service.impl.CheckitemServiceImpl"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 声明需要暴露的服务接口 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dubbo:service</span> <span class="attr">interface</span>=<span class="string">"cn.itcast.dubbo.service.CheckitemService"</span> <span class="attr">ref</span>=<span class="string">"checkitemService"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>注意</strong>:在一个实现类(CheckitemServiceImpl)加上@Transactional注解时,Spring会为此类基于JDK动态代理技术创建代理对象,如com.sun.proxy.$Proxy42,而我们在xml文件中注册Bean的时候，使用的class仍然为CheckitemServiceImpl,所以就会出现服务提供者无法注册到Dubbo中的情况。</p>
 <p><strong>解决方法:</strong> </p>
@@ -260,6 +262,29 @@
 </li>
 </ol>
 </li>
+</ol>
+</li>
+<li><p>启动时检查</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dubbo:consumer</span> <span class="attr">check</span>=<span class="string">"false"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    上面这个配置需要配置在服务消费者一方，如果不配置默认check值为true。Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会抛出异常，阻止 Spring 初始化完成，以便上线时，能及早发现问题。可以通过将check值改为false来关闭检查。建议在开发阶段将check值设置为false，在生产环境下改为true。</p>
+</li>
+<li><p>负载均衡</p>
+<pre><code>负载均衡（Load Balance）：其实就是将请求分摊到多个操作单元上进行执行，从而共同完成工作任务。在集群负载均衡时，Dubbo 提供了多种均衡策略（包括随机(random)、轮询(roundrobin)、最少活跃调用数、一致性Hash），缺省为random随机调用。配置负载均衡策略，既可以在服务提供者一方配置，也可以在服务消费者一方配置，如下：</code></pre><ol>
+<li><p>服务提供者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在服务提供者一方配置负载均衡</span></span><br><span class="line"><span class="meta">@Service</span>(interfaceClass = CheckitemService.class,loadbalance = <span class="string">"roundrobin"</span>)</span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckitemServiceImpl</span> <span class="keyword">implements</span> <span class="title">CheckitemService</span></span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CheckitemDao checkitemDao;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增检查项</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> checkItem</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(CheckItem checkItem)</span> </span>&#123;</span><br><span class="line">        checkitemDao.add(checkItem);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务消费者</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span> <span class="comment">//将当前处理器中所有方法的返回值都转换成json数据.</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/checkitem"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckitemController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Reference</span>(check = <span class="keyword">false</span>, loadbalance = <span class="string">"roundrobin"</span>)</span><br><span class="line">    <span class="keyword">private</span> CheckitemService checkitemService;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="8">
+<li></li>
 </ol>
 
       
