@@ -269,7 +269,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -426,7 +426,8 @@
 <p>​    上面这个配置需要配置在服务消费者一方，如果不配置默认check值为true。Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会抛出异常，阻止 Spring 初始化完成，以便上线时，能及早发现问题。可以通过将check值改为false来关闭检查。建议在开发阶段将check值设置为false，在生产环境下改为true。</p>
 </li>
 <li><p>负载均衡</p>
-<pre><code>负载均衡（Load Balance）：其实就是将请求分摊到多个操作单元上进行执行，从而共同完成工作任务。在集群负载均衡时，Dubbo 提供了多种均衡策略（包括随机(random)、轮询(roundrobin)、最少活跃调用数、一致性Hash），缺省为random随机调用。配置负载均衡策略，既可以在服务提供者一方配置，也可以在服务消费者一方配置，如下：</code></pre><ol>
+<p>​         负载均衡(Load Balance):其实就是将请求分摊到多个操作单元上执行，从而共同完成工作任务。在集群负载均衡时，dubbo提供了多种均衡策略(包括随机(random))、轮询(roundrobin)、最少活跃调用数、一致性Hash),缺省为random随机调用。配置负载均衡策略，既可以在服务提供者一方配置，也可以在服务消费者一方配置，如下：</p>
+<ol>
 <li><p>服务提供者</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在服务提供者一方配置负载均衡</span></span><br><span class="line"><span class="meta">@Service</span>(interfaceClass = CheckitemService.class,loadbalance = <span class="string">"roundrobin"</span>)</span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheckitemServiceImpl</span> <span class="keyword">implements</span> <span class="title">CheckitemService</span></span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CheckitemDao checkitemDao;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增检查项</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> checkItem</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(CheckItem checkItem)</span> </span>&#123;</span><br><span class="line">        checkitemDao.add(checkItem);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -1026,15 +1027,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">dubbo</a>
               </li>
             
             <div class="clearfix"></div>
