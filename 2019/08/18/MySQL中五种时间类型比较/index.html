@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/6 | happylin</title>
+  <title>MySQL中五种时间类型比较 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="happylin的个人博客，技术总结，平时遇到的Bug">
-<meta name="keywords" content="java，python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happylin">
-<meta property="og:url" content="http://yoursite.com/archives/2019/06/index.html">
+  <meta name="description" content="五种时间类型   日期时间类型 占用空间 日期格式 最小值 最大值 零值表示 对应的JAVA时间类型    DATETIME 8 bytes YYYY-MM-DD HH:MM:SS 1000-01-01 00:00:00 9999-12-31 23:59:59 0000-00-00 00:00:00 java.sql.Timestamp   TIMESTAMP 4 bytes YYYY-MM-DD">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL中五种时间类型比较">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/MySQL中五种时间类型比较/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta property="og:description" content="五种时间类型   日期时间类型 占用空间 日期格式 最小值 最大值 零值表示 对应的JAVA时间类型    DATETIME 8 bytes YYYY-MM-DD HH:MM:SS 1000-01-01 00:00:00 9999-12-31 23:59:59 0000-00-00 00:00:00 java.sql.Timestamp   TIMESTAMP 4 bytes YYYY-MM-DD">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-08-18T06:24:28.853Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happylin">
-<meta name="twitter:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta name="twitter:title" content="MySQL中五种时间类型比较">
+<meta name="twitter:description" content="五种时间类型   日期时间类型 占用空间 日期格式 最小值 最大值 零值表示 对应的JAVA时间类型    DATETIME 8 bytes YYYY-MM-DD HH:MM:SS 1000-01-01 00:00:00 9999-12-31 23:59:59 0000-00-00 00:00:00 java.sql.Timestamp   TIMESTAMP 4 bytes YYYY-MM-DD">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -152,49 +153,246 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL中五种时间类型比较" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/30/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-30T00:53:18.526Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/30/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL中五种时间类型比较
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
 
+        
+
+        
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+      
+
+
+
+        
+        <a href="/2019/08/18/MySQL中五种时间类型比较/" class="archive-article-date">
+  	<time datetime="2019-08-18T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="五种时间类型"><a href="#五种时间类型" class="headerlink" title="五种时间类型"></a>五种时间类型</h3><table>
+<thead>
+<tr>
+<th align="center">日期时间类型</th>
+<th align="center">占用空间</th>
+<th align="center">日期格式</th>
+<th align="center">最小值</th>
+<th align="center">最大值</th>
+<th align="center">零值表示</th>
+<th align="center">对应的JAVA时间类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DATETIME</td>
+<td align="center">8 bytes</td>
+<td align="center">YYYY-MM-DD HH:MM:SS</td>
+<td align="center">1000-01-01 00:00:00</td>
+<td align="center">9999-12-31 23:59:59</td>
+<td align="center">0000-00-00 00:00:00</td>
+<td align="center">java.sql.Timestamp</td>
+</tr>
+<tr>
+<td align="center">TIMESTAMP</td>
+<td align="center">4 bytes</td>
+<td align="center">YYYY-MM-DD HH:MM:SS</td>
+<td align="center">19700101080001</td>
+<td align="center">2038 年的某个时刻</td>
+<td align="center">00000000000000</td>
+<td align="center">java.sql.Timestamp</td>
+</tr>
+<tr>
+<td align="center">DATE</td>
+<td align="center">4 bytes</td>
+<td align="center">YYYY-MM-DD</td>
+<td align="center">1000-01-01</td>
+<td align="center">9999-12-31</td>
+<td align="center">0000-00-00</td>
+<td align="center">java.sql.Date</td>
+</tr>
+<tr>
+<td align="center">TIME</td>
+<td align="center">3 bytes</td>
+<td align="center">HH:MM:SS</td>
+<td align="center">-838:59:59</td>
+<td align="center">838:59:59</td>
+<td align="center">00:00:00</td>
+<td align="center">java.sql.Time</td>
+</tr>
+<tr>
+<td align="center">YEAR</td>
+<td align="center">1 bytes</td>
+<td align="center">YYYY</td>
+<td align="center">1901</td>
+<td align="center">2155</td>
+<td align="center">0000</td>
+<td align="center">java.sql.Date</td>
+</tr>
+</tbody></table>
+<h5 id="1-DATETIME"><a href="#1-DATETIME" class="headerlink" title="1. DATETIME"></a>1. DATETIME</h5><p>DATETIME用于表示年月日时分秒，是DATE和Time的组合，并且记录的年份（见上表）比较长久。如果实际应用中有这样的需求，就可以使用 DATETIME 类型。</p>
+<ol>
+<li>DATETIME列可以设置为多个，默认可为null，可以手动设置其值。</li>
+<li>DATETIME列不可设定默认值。</li>
+<li>DATETIME列可以变相的设定默认值，比如通过触发器、或者在插入数据时候，将DATETIME字段值设置为now()，这样可以做到了，尤其是后者，在程序开发中常常用到。</li>
+</ol>
+<h5 id="2-TIMESTAMP"><a href="#2-TIMESTAMP" class="headerlink" title="2. TIMESTAMP"></a>2. TIMESTAMP</h5><ul>
+<li>表示年月日时分秒，必须有默认值，默认值可以为”0000-00-00 00:00:00”,不能为null。</li>
+<li>TIMESTAMP和时区相关，更能反映当前时间。插入日期时，会先转换为本地时区后再存放；查询日期时，会将日期转换为本地时区后再显示。所以不同时区的人看到的同一时间是不一样的。</li>
+<li>表中的第一个 TIMESTAMP列自动设置为系统时间（CURRENT_TIMESTAMP）。当插入或更新一行，但没有明确给 TIMESTAMP 列赋值，也会自动设置为当前系统时间。如果表中有第二个 TIMESTAMP 列，则默认值设置为0000-00-00 00:00:00,也可以手动设置默认值。</li>
+<li>MySQL中，TIMESTAMP可以设置根据时间戳更新,表示每一次修改表中的字段时，此列都会更新为当前系统时间。</li>
+</ul>
+<p><strong>注意:</strong></p>
+<p>新增一行时，会根据默认值设定类型为TIMESTAMP的值，当修改一行时，会根据是不是设定了根据时间戳更新。如果设定了，则更新为当前时间，否则，不会变化。</p>
+<h5 id="3-DATE"><a href="#3-DATE" class="headerlink" title="3. DATE"></a>3. DATE</h5><p> DATE 用于表示 年月日，如果实际应用值需要保存 年月日 就可以使用 DATE。</p>
+<h5 id="4-TIME"><a href="#4-TIME" class="headerlink" title="4. TIME"></a>4. TIME</h5><p> TIME 用于表示 时分秒，如果实际应用值需要保存 时分秒 就可以使用 TIME。</p>
+<h5 id="5-YEAR"><a href="#5-YEAR" class="headerlink" title="5. YEAR"></a>5. YEAR</h5><p> YEAR 用于表示 年份，YEAR 有 2 位（最好使用4位）和 4 位格式的年。 默认是4位。如果实际应用只保存年份，那么用 1 bytes 保存 YEAR 类型完全可以。不但能够节约存储空间，还能提高表的操作效率。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/18/MySQL中五种时间类型比较/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/08/14/Dubbo总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Dubbo</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -217,8 +415,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
