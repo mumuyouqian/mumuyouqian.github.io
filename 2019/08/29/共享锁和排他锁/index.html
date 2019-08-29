@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/8 | happylin</title>
+  <title>共享锁和排他锁 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="happylin的个人博客，技术总结，平时遇到的Bug">
-<meta name="keywords" content="java，python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happylin">
-<meta property="og:url" content="http://yoursite.com/archives/2019/08/index.html">
+  <meta name="description" content="一：共享锁 共享锁(读锁)：如果事务对数据加上共享锁后，则其他事务只能对此数据再加共享锁，不能加排他锁。获准共享锁的事务只能读数据，不能修改数据。  新建表 12345create table student (	id int,    name varchar(15),    score int)  插入数据 1insert into student(id,name,score) values(1">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="共享锁和排他锁">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/共享锁和排他锁/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta property="og:description" content="一：共享锁 共享锁(读锁)：如果事务对数据加上共享锁后，则其他事务只能对此数据再加共享锁，不能加排他锁。获准共享锁的事务只能读数据，不能修改数据。  新建表 12345create table student (	id int,    name varchar(15),    score int)  插入数据 1insert into student(id,name,score) values(1">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-08-29T13:50:32.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happylin">
-<meta name="twitter:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta name="twitter:title" content="共享锁和排他锁">
+<meta name="twitter:description" content="一：共享锁 共享锁(读锁)：如果事务对数据加上共享锁后，则其他事务只能对此数据再加共享锁，不能加排他锁。获准共享锁的事务只能读数据，不能修改数据。  新建表 12345create table student (	id int,    name varchar(15),    score int)  插入数据 1insert into student(id,name,score) values(1">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -152,36 +153,101 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-共享锁和排他锁" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/29/共享锁和排他锁/" class="archive-article-date">
-  	<time datetime="2019-08-29T13:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/29/共享锁和排他锁/">共享锁和排他锁</a>
+    <h1 class="article-title" itemprop="name">
+      共享锁和排他锁
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+
+        
+
+        
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+      
+
+
+
+        
+        <a href="/2019/08/29/共享锁和排他锁/" class="archive-article-date">
+  	<time datetime="2019-08-29T13:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一：共享锁"><a href="#一：共享锁" class="headerlink" title="一：共享锁"></a>一：共享锁</h4><ol>
+<li><p>共享锁(读锁)：如果事务对数据加上共享锁后，则其他事务只能对此数据再加共享锁，不能加排他锁。获准共享锁的事务只能读数据，不能修改数据。</p>
+</li>
+<li><p>新建表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create table student (</span><br><span class="line">	id int,</span><br><span class="line">    name varchar(15),</span><br><span class="line">    score int</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into student(id,name,score) values(1,&apos;zhangsan&apos;,23)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关闭事务的自动提交</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#查看：</span><br><span class="line">show variables like &apos;%autocommit%&apos;;</span><br><span class="line">#开启:</span><br><span class="line">set autocommit = 1；</span><br><span class="line">#关闭：</span><br><span class="line">set autocommit = 0 ;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加共享锁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student where id = 1 lock in share mode;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对加锁的数据进行修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update student set score=322 where id=1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提示错误</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对加锁的数据进行查询(OK)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对加锁的数据再次加共享锁(OK)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student where id = 1 lock in share mode;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对加锁的数据加排他锁(Error)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student where id = 1 for update;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="二：排他锁"><a href="#二：排他锁" class="headerlink" title="二：排他锁"></a>二：排他锁</h4><ol>
+<li><p>排他锁(写锁)：用于数据修改操作，例如 INSERT、UPDATE 或 DELETE。确保不会同时同一资源进行多重更新。</p>
+<p>如果事务T对数据A加上排他锁后，则其他事务不能再对A加任任何类型的封锁。获准排他锁的事务既能读数据，又能修改数据。</p>
+<p>我们在操作数据库的时候，可能会由于并发问题而引起的数据的不一致性（数据冲突）</p>
+</li>
+<li><p>加排他锁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student where id =1 for update;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对加锁的数据进行修改(Error)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update student set score=322 where id=1;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对加锁的数据再次加共享锁(Error)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student where id = 1 lock in share mode;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对加锁的数据加排他锁(Error)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student where id = 1 for update;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,117 +259,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/29/共享锁和排他锁/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/18/MySQL中五种时间类型比较/" class="archive-article-date">
-  	<time datetime="2019-08-18T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/18/MySQL中五种时间类型比较/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL中五种时间类型比较</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/18/MySQL中五种时间类型比较/">MySQL中五种时间类型比较</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/14/Dubbo总结/" class="archive-article-date">
-  	<time datetime="2019-08-14T00:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Dubbo总结/">Dubbo</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">dubbo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -326,8 +381,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
