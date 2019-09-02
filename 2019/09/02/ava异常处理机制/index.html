@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | happylin</title>
+  <title>Java异常处理机制 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="happylin的个人博客，技术总结，平时遇到的Bug">
-<meta name="keywords" content="java，python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happylin">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="什么是异常  异常指的就是程序的不正常，简单理解就是程序所发生的错误   异常的体系结构&amp;amp;分类  分类: 编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的 运行时异常：指的是编译通过了，但运行时出现的错误   体系结构： Throwable Error:严重的错误 Exception: RuntimeExc">
+<meta name="keywords" content="Java,Exception">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java异常处理机制">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/ava异常处理机制/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta property="og:description" content="什么是异常  异常指的就是程序的不正常，简单理解就是程序所发生的错误   异常的体系结构&amp;amp;分类  分类: 编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的 运行时异常：指的是编译通过了，但运行时出现的错误   体系结构： Throwable Error:严重的错误 Exception: RuntimeExc">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-09-02T05:23:01.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happylin">
-<meta name="twitter:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta name="twitter:title" content="Java异常处理机制">
+<meta name="twitter:description" content="什么是异常  异常指的就是程序的不正常，简单理解就是程序所发生的错误   异常的体系结构&amp;amp;分类  分类: 编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的 运行时异常：指的是编译通过了，但运行时出现的错误   体系结构： Throwable Error:严重的错误 Exception: RuntimeExc">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -152,36 +153,127 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ava异常处理机制" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/02/ava异常处理机制/" class="archive-article-date">
-  	<time datetime="2019-09-02T05:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/02/ava异常处理机制/">Java异常处理机制</a>
+    <h1 class="article-title" itemprop="name">
+      Java异常处理机制
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+
+        
+
+        
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+      
+
+
+
+        
+        <a href="/2019/09/02/ava异常处理机制/" class="archive-article-date">
+  	<time datetime="2019-09-02T05:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>什么是异常</p>
+<ul>
+<li>异常指的就是程序的不正常，简单理解就是程序所发生的错误</li>
+</ul>
+</li>
+<li><p>异常的体系结构&amp;分类</p>
+<ul>
+<li>分类:<ul>
+<li>编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的</li>
+<li>运行时异常：指的是编译通过了，但运行时出现的错误</li>
+</ul>
+</li>
+<li>体系结构：<ul>
+<li>Throwable<ul>
+<li>Error:严重的错误</li>
+<li>Exception:<ul>
+<li>RuntimeException<ul>
+<li>运行时异常</li>
+</ul>
+</li>
+<li>！RuntimeException</li>
+<li>编译时异常</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>异常产生的原理：</p>
+<ul>
+<li>java对异常默认处理方式，是将问题抛出给上一级<ul>
+<li>抛出之前：java会根据错误产生异常类，创建出该类的对象，底层并通过throw关键字将异常抛出给上一级，不断向上抛出，直到抛出给JVM虚拟机，虚拟机拿到问题之后，就会将错误的原因的所在的位置，打印在控制台。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>异常的处理方式</p>
+<ul>
+<li><p>1、问题可以自己处理的</p>
+<p>try…catch处理方式：自己将问题处理掉，不会影响到后续代码的继续执行。</p>
+</li>
+<li><p>2、问题自己处理不掉的</p>
+<p>​    throws抛出处理方式:    </p>
+<p>​    如果发现问题自己无法解决，就可以通过throw关键字，将异常对象抛出给调用者，但如果使用throw抛出异常对象，则方法上面必须进行throws的声明，告知调用者此方法存在异常</p>
+<p><strong>细节：</strong>如果抛出的异常对象是RuntimeException,则方法上面无需throws声明</p>
+</li>
+</ul>
+</li>
+<li><p>常见问题</p>
+<ul>
+<li><p>Spring框架的事务默认是RuntimeException才进行回滚</p>
+</li>
+<li><p>解决方案</p>
+<ul>
+<li><p>修改Transactional注解中的rollbackFor属性可以指定exception异常回滚</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span>(rollbackFor=&#123;Exception.class&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>编写自定义异常，利用throw抛出自定义异常<ul>
+<li>自定义异常：其实就是一个规范的异常类名，根据异常类名能够分析出问题所在的原因</li>
+</ul>
+</li>
+<li>如何实现？<ul>
+<li>找一个类，继承Exception,或者RuntimeException即可</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>  ​        </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,7 +289,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -210,217 +302,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/02/ava异常处理机制/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/29/共享锁和排他锁/" class="archive-article-date">
-  	<time datetime="2019-08-29T13:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/29/共享锁和排他锁/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">共享锁和排他锁</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/29/共享锁和排他锁/">共享锁和排他锁</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/18/MySQL中五种时间类型比较/" class="archive-article-date">
-  	<time datetime="2019-08-18T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/18/MySQL中五种时间类型比较/">MySQL中五种时间类型比较</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/14/Dubbo总结/" class="archive-article-date">
-  	<time datetime="2019-08-14T00:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/Dubbo总结/">Dubbo</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RPC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Dubbo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/29/数据库总结/" class="archive-article-date">
-  	<time datetime="2019-07-28T23:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/29/数据库总结/">数据库总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -443,8 +422,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
