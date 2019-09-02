@@ -154,6 +154,146 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ava中的垃圾回收机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/02/ava中的垃圾回收机制/">Java中的垃圾回收机制</a>
+    </h1>
+  
+
+
+        
+
+        
+
+
+
+        
+        <a href="/2019/09/02/ava中的垃圾回收机制/" class="archive-article-date">
+  	<time datetime="2019-09-02T14:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>什么样的对象会被当做垃圾回收</p>
+<ul>
+<li>当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫</li>
+</ul>
+</li>
+<li><p>如何校验对象是否被回收</p>
+<ul>
+<li>可以重写Object类中的finalize方法<ul>
+<li>这个方法在垃圾回收器执行的时候，被回收器自动调用执行的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>怎么样通知垃圾回收器回收对象</p>
+<ul>
+<li>可以调用System的静态方法gc()通知垃圾回收器去清理垃圾</li>
+</ul>
+</li>
+<li><p>如何判断哪些对象需要回收</p>
+<ol>
+<li><p>引用计数法(Java中不是使用此方法)</p>
+<p>每个对象中添加一个引用计数器，当有别人引用它的时候，计数器就会加1，当别人不引用它的时候，计数器就会减1，当计数器为0的时候对象就可以当成垃圾。算法简单，但是最大问题就是在循环引用时不能把正确对象当成垃圾</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_GC</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Demo object1 = <span class="keyword">new</span> Demo();</span><br><span class="line">        Demo object2 = <span class="keyword">new</span> Demo();</span><br><span class="line">        </span><br><span class="line">        object1.object = object2;</span><br><span class="line">        object2.object = object1;</span><br><span class="line">        </span><br><span class="line">        object1 = <span class="keyword">null</span>;</span><br><span class="line">        object2 = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根搜索算法</p>
+<p>这是JVM一般使用的算法，根搜索算法是从离散数学中的图论引入的，程序把所有的引用关系</p>
+<p>看作一张图。从一个节点GC ROOT开始，寻找对应的引用节点，找到这个节点以后，继续寻找这个节点的引用节点。当所有的引用节点寻找完毕之后，剩余的节点则被认为是没有被引用的节点，即无用的节点</p>
+<p><img src="https://s2.ax1x.com/2019/09/02/niW1vd.png" alt="niW1vd.png"></p>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>尽量不要创建很大的对象<ul>
+<li>原因：GC回收算法从来不对大对象(&gt;85000字节)堆进行压缩处理，在堆中大的内存块会浪费很多CPU时间</li>
+</ul>
+</li>
+<li>不要频繁的new声明周期很短的对象<ul>
+<li>这样频繁的垃圾回收频繁压缩可能会导致很多内存碎片</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GC</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/02/ava中的垃圾回收机制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-创建线程的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1425,6 +1565,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -1433,7 +1577,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MySQL中五种时间类型比较 | happylin</title>
+  <title>Java中的垃圾回收机制 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="五种时间类型   日期时间类型 占用空间 日期格式 最小值 最大值 零值表示 对应的JAVA时间类型    DATETIME 8 bytes YYYY-MM-DD HH:MM:SS 1000-01-01 00:00:00 9999-12-31 23:59:59 0000-00-00 00:00:00 java.sql.Timestamp   TIMESTAMP 4 bytes YYYY-MM-DD">
-<meta name="keywords" content="MySQL">
+  <meta name="description" content="什么样的对象会被当做垃圾回收  当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫   如何校验对象是否被回收  可以重写Object类中的finalize方法 这个方法在垃圾回收器执行的时候，被回收器自动调用执行的     怎么样通知垃圾回收器回收对象  可以调用System的静态方法gc()通知垃圾回收器去清理垃圾   如何判断哪些对象">
+<meta name="keywords" content="Java,GC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL中五种时间类型比较">
-<meta property="og:url" content="http://yoursite.com/2019/08/18/MySQL中五种时间类型比较/index.html">
+<meta property="og:title" content="Java中的垃圾回收机制">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/ava中的垃圾回收机制/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="五种时间类型   日期时间类型 占用空间 日期格式 最小值 最大值 零值表示 对应的JAVA时间类型    DATETIME 8 bytes YYYY-MM-DD HH:MM:SS 1000-01-01 00:00:00 9999-12-31 23:59:59 0000-00-00 00:00:00 java.sql.Timestamp   TIMESTAMP 4 bytes YYYY-MM-DD">
+<meta property="og:description" content="什么样的对象会被当做垃圾回收  当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫   如何校验对象是否被回收  可以重写Object类中的finalize方法 这个方法在垃圾回收器执行的时候，被回收器自动调用执行的     怎么样通知垃圾回收器回收对象  可以调用System的静态方法gc()通知垃圾回收器去清理垃圾   如何判断哪些对象">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-08-31T03:44:10.120Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/02/niW1vd.png">
+<meta property="og:updated_time" content="2019-09-02T15:01:06.364Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL中五种时间类型比较">
-<meta name="twitter:description" content="五种时间类型   日期时间类型 占用空间 日期格式 最小值 最大值 零值表示 对应的JAVA时间类型    DATETIME 8 bytes YYYY-MM-DD HH:MM:SS 1000-01-01 00:00:00 9999-12-31 23:59:59 0000-00-00 00:00:00 java.sql.Timestamp   TIMESTAMP 4 bytes YYYY-MM-DD">
+<meta name="twitter:title" content="Java中的垃圾回收机制">
+<meta name="twitter:description" content="什么样的对象会被当做垃圾回收  当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫   如何校验对象是否被回收  可以重写Object类中的finalize方法 这个方法在垃圾回收器执行的时候，被回收器自动调用执行的     怎么样通知垃圾回收器回收对象  可以调用System的静态方法gc()通知垃圾回收器去清理垃圾   如何判断哪些对象">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/02/niW1vd.png">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -153,14 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySQL中五种时间类型比较" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ava中的垃圾回收机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MySQL中五种时间类型比较
+      Java中的垃圾回收机制
     </h1>
   
 
@@ -180,89 +182,59 @@
 
 
         
-        <a href="/2019/08/18/MySQL中五种时间类型比较/" class="archive-article-date">
-  	<time datetime="2019-08-18T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
+        <a href="/2019/09/02/ava中的垃圾回收机制/" class="archive-article-date">
+  	<time datetime="2019-09-02T14:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="五种时间类型"><a href="#五种时间类型" class="headerlink" title="五种时间类型"></a>五种时间类型</h3><table>
-<thead>
-<tr>
-<th align="center">日期时间类型</th>
-<th align="center">占用空间</th>
-<th align="center">日期格式</th>
-<th align="center">最小值</th>
-<th align="center">最大值</th>
-<th align="center">零值表示</th>
-<th align="center">对应的JAVA时间类型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">DATETIME</td>
-<td align="center">8 bytes</td>
-<td align="center">YYYY-MM-DD HH:MM:SS</td>
-<td align="center">1000-01-01 00:00:00</td>
-<td align="center">9999-12-31 23:59:59</td>
-<td align="center">0000-00-00 00:00:00</td>
-<td align="center">java.sql.Timestamp</td>
-</tr>
-<tr>
-<td align="center">TIMESTAMP</td>
-<td align="center">4 bytes</td>
-<td align="center">YYYY-MM-DD HH:MM:SS</td>
-<td align="center">19700101080001</td>
-<td align="center">2038 年的某个时刻</td>
-<td align="center">00000000000000</td>
-<td align="center">java.sql.Timestamp</td>
-</tr>
-<tr>
-<td align="center">DATE</td>
-<td align="center">4 bytes</td>
-<td align="center">YYYY-MM-DD</td>
-<td align="center">1000-01-01</td>
-<td align="center">9999-12-31</td>
-<td align="center">0000-00-00</td>
-<td align="center">java.sql.Date</td>
-</tr>
-<tr>
-<td align="center">TIME</td>
-<td align="center">3 bytes</td>
-<td align="center">HH:MM:SS</td>
-<td align="center">-838:59:59</td>
-<td align="center">838:59:59</td>
-<td align="center">00:00:00</td>
-<td align="center">java.sql.Time</td>
-</tr>
-<tr>
-<td align="center">YEAR</td>
-<td align="center">1 bytes</td>
-<td align="center">YYYY</td>
-<td align="center">1901</td>
-<td align="center">2155</td>
-<td align="center">0000</td>
-<td align="center">java.sql.Date</td>
-</tr>
-</tbody></table>
-<h5 id="1-DATETIME"><a href="#1-DATETIME" class="headerlink" title="1. DATETIME"></a>1. DATETIME</h5><p>DATETIME用于表示年月日时分秒，是DATE和Time的组合，并且记录的年份（见上表）比较长久。如果实际应用中有这样的需求，就可以使用 DATETIME 类型。</p>
-<ol>
-<li>DATETIME列可以设置为多个，默认可为null，可以手动设置其值。</li>
-<li>DATETIME列不可设定默认值。</li>
-<li>DATETIME列可以变相的设定默认值，比如通过触发器、或者在插入数据时候，将DATETIME字段值设置为now()，这样可以做到了，尤其是后者，在程序开发中常常用到。</li>
-</ol>
-<h5 id="2-TIMESTAMP"><a href="#2-TIMESTAMP" class="headerlink" title="2. TIMESTAMP"></a>2. TIMESTAMP</h5><ul>
-<li>表示年月日时分秒，必须有默认值，默认值可以为”0000-00-00 00:00:00”,不能为null。</li>
-<li>TIMESTAMP和时区相关，更能反映当前时间。插入日期时，会先转换为本地时区后再存放；查询日期时，会将日期转换为本地时区后再显示。所以不同时区的人看到的同一时间是不一样的。</li>
-<li>表中的第一个 TIMESTAMP列自动设置为系统时间（CURRENT_TIMESTAMP）。当插入或更新一行，但没有明确给 TIMESTAMP 列赋值，也会自动设置为当前系统时间。如果表中有第二个 TIMESTAMP 列，则默认值设置为0000-00-00 00:00:00,也可以手动设置默认值。</li>
-<li>MySQL中，TIMESTAMP可以设置根据时间戳更新,表示每一次修改表中的字段时，此列都会更新为当前系统时间。</li>
+        <ul>
+<li><p>什么样的对象会被当做垃圾回收</p>
+<ul>
+<li>当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫</li>
 </ul>
-<p><strong>注意:</strong></p>
-<p>新增一行时，会根据默认值设定类型为TIMESTAMP的值，当修改一行时，会根据是不是设定了根据时间戳更新。如果设定了，则更新为当前时间，否则，不会变化。</p>
-<h5 id="3-DATE"><a href="#3-DATE" class="headerlink" title="3. DATE"></a>3. DATE</h5><p> DATE 用于表示 年月日，如果实际应用值需要保存 年月日 就可以使用 DATE。</p>
-<h5 id="4-TIME"><a href="#4-TIME" class="headerlink" title="4. TIME"></a>4. TIME</h5><p> TIME 用于表示 时分秒，如果实际应用值需要保存 时分秒 就可以使用 TIME。</p>
-<h5 id="5-YEAR"><a href="#5-YEAR" class="headerlink" title="5. YEAR"></a>5. YEAR</h5><p> YEAR 用于表示 年份，YEAR 有 2 位（最好使用4位）和 4 位格式的年。 默认是4位。如果实际应用只保存年份，那么用 1 bytes 保存 YEAR 类型完全可以。不但能够节约存储空间，还能提高表的操作效率。</p>
+</li>
+<li><p>如何校验对象是否被回收</p>
+<ul>
+<li>可以重写Object类中的finalize方法<ul>
+<li>这个方法在垃圾回收器执行的时候，被回收器自动调用执行的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>怎么样通知垃圾回收器回收对象</p>
+<ul>
+<li>可以调用System的静态方法gc()通知垃圾回收器去清理垃圾</li>
+</ul>
+</li>
+<li><p>如何判断哪些对象需要回收</p>
+<ol>
+<li><p>引用计数法(Java中不是使用此方法)</p>
+<p>每个对象中添加一个引用计数器，当有别人引用它的时候，计数器就会加1，当别人不引用它的时候，计数器就会减1，当计数器为0的时候对象就可以当成垃圾。算法简单，但是最大问题就是在循环引用时不能把正确对象当成垃圾</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_GC</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Demo object1 = <span class="keyword">new</span> Demo();</span><br><span class="line">        Demo object2 = <span class="keyword">new</span> Demo();</span><br><span class="line">        </span><br><span class="line">        object1.object = object2;</span><br><span class="line">        object2.object = object1;</span><br><span class="line">        </span><br><span class="line">        object1 = <span class="keyword">null</span>;</span><br><span class="line">        object2 = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根搜索算法</p>
+<p>这是JVM一般使用的算法，根搜索算法是从离散数学中的图论引入的，程序把所有的引用关系</p>
+<p>看作一张图。从一个节点GC ROOT开始，寻找对应的引用节点，找到这个节点以后，继续寻找这个节点的引用节点。当所有的引用节点寻找完毕之后，剩余的节点则被认为是没有被引用的节点，即无用的节点</p>
+<p><img src="https://s2.ax1x.com/2019/09/02/niW1vd.png" alt="niW1vd.png"></p>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>尽量不要创建很大的对象<ul>
+<li>原因：GC回收算法从来不对大对象(&gt;85000字节)堆进行压缩处理，在堆中大的内存块会浪费很多CPU时间</li>
+</ul>
+</li>
+<li>不要频繁的new声明周期很短的对象<ul>
+<li>这样频繁的垃圾回收频繁压缩可能会导致很多内存碎片</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
 
       
 
@@ -276,7 +248,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GC</a>
         		</li>
       		
 		</ul>
@@ -343,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/18/MySQL中五种时间类型比较/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/02/ava中的垃圾回收机制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -357,18 +333,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/29/共享锁和排他锁/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          共享锁和排他锁
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/08/14/Dubbo总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Dubbo</div>
+    <a href="/2019/09/02/创建线程的几种方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">创建线程的几种方式</div>
       <i class="icon-circle-right"></i>
     </a>
   
