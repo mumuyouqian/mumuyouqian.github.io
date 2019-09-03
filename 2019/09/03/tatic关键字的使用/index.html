@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/7 | happylin</title>
+  <title>static关键字的使用 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="happylin的个人博客，技术总结，平时遇到的Bug">
-<meta name="keywords" content="java，python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happylin">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
+  <meta name="description" content="static可以修饰什么？  可以修饰成员变量、成员方法、内部类 不可以修饰局部变量，原因：静态成员是属于类的，不属于方法的   static关键字的特点  静态成员被所在类的对象共享  静态成员可以通过类名进行调用  静态成员随着类的加载而加载  静态成员优先于对象存在 注意事项：先进内存的不能调用后进内存的    static方法访问的特点  静态方法只能调用静态成员(静态成员变量、静态成员">
+<meta name="keywords" content="Java,keyword,static">
+<meta property="og:type" content="article">
+<meta property="og:title" content="static关键字的使用">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/tatic关键字的使用/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta property="og:description" content="static可以修饰什么？  可以修饰成员变量、成员方法、内部类 不可以修饰局部变量，原因：静态成员是属于类的，不属于方法的   static关键字的特点  静态成员被所在类的对象共享  静态成员可以通过类名进行调用  静态成员随着类的加载而加载  静态成员优先于对象存在 注意事项：先进内存的不能调用后进内存的    static方法访问的特点  静态方法只能调用静态成员(静态成员变量、静态成员">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-09-03T02:04:44.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happylin">
-<meta name="twitter:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta name="twitter:title" content="static关键字的使用">
+<meta name="twitter:description" content="static可以修饰什么？  可以修饰成员变量、成员方法、内部类 不可以修饰局部变量，原因：静态成员是属于类的，不属于方法的   static关键字的特点  静态成员被所在类的对象共享  静态成员可以通过类名进行调用  静态成员随着类的加载而加载  静态成员优先于对象存在 注意事项：先进内存的不能调用后进内存的    static方法访问的特点  静态方法只能调用静态成员(静态成员变量、静态成员">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -152,52 +153,154 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-tatic关键字的使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/29/数据库总结/" class="archive-article-date">
-  	<time datetime="2019-07-28T23:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/29/数据库总结/">数据库总结</a>
+    <h1 class="article-title" itemprop="name">
+      static关键字的使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+
+        
+
+        
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+      
+
+
+
+        
+        <a href="/2019/09/03/tatic关键字的使用/" class="archive-article-date">
+  	<time datetime="2019-09-03T02:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>static可以修饰什么？</p>
+<ol>
+<li>可以修饰成员变量、成员方法、内部类</li>
+<li>不可以修饰局部变量，原因：静态成员是属于类的，不属于方法的</li>
+</ol>
+</li>
+<li><p>static关键字的特点</p>
+<ol>
+<li><p>静态成员被所在类的对象共享</p>
+</li>
+<li><p>静态成员可以通过类名进行调用</p>
+</li>
+<li><p>静态成员随着类的加载而加载</p>
+</li>
+<li><p>静态成员优先于对象存在</p>
+<p><strong>注意事项：</strong>先进内存的不能调用后进内存的</p>
+</li>
+</ol>
+</li>
+<li><p>static方法访问的特点</p>
+<ol>
+<li>静态方法只能调用静态成员(静态成员变量、静态成员方法)</li>
+<li>非静态方法可以调用任意成员(静态和非静态都可以)<ul>
+<li>原因：<ul>
+<li>静态方法是属于类的方法，是随着类的加载而加载，所以静态方法可以直接通过类名来调用，静态方法也可以访问其它静态方法</li>
+<li>非静态方法属于对象的方法，因为类优先于对象存在，静态方法随着类加载而加载，所以当静态方法加载到内存时，非静态方法还没有在内存中存在，先进内存的调用不了后进内存的，所以静态方法调用不了非静态方法，非静态方法需要通过创建对象，用对象进行调用。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Java中是否可以重写private和static修饰的方法？</p>
+<p> 不可以</p>
+<ol>
+<li><p>private修饰的方法不能被重写，private修饰的成员变量只能在本类中访问</p>
+</li>
+<li><p>静态的方法可以被继承，但是不能被重写。如果父类中有一个静态的方法，子类也有一个与其方法名、参数列表相同的方法，那么该子类的方法会把原来继承过来的父类的方法隐藏，为不是重写。通俗来讲就是父类的方法和子类的方法是两个没有关系的方法。</p>
+<p><strong>注意事项：</strong>静态方法中不能使用this关键字 原因：this代表对象，类优先于对象存在，所以静态方法随着类的加载而加载，也就是说静态成员优先于对象存在，所以静态方法不能使用this关键字。</p>
+</li>
+</ol>
+</li>
+<li><p>抽象方法是否可以使用static修饰</p>
+<p>不可以</p>
+<p>原因：</p>
+<p>​    抽象方法是让子类去重写，完善功能的，而static修饰的方法不能被重写。可以试想，如果可以调用static修饰抽象方法的话，那么通过类名调用一个静态抽象方法，抽象方法没有方法体，有何意义？</p>
+</li>
+<li><p>非静态内部类与静态内部类的区别？</p>
+<ol>
+<li><p>成员变量的区别</p>
+<p>静态内部类：可以定义静态和非静态的成员变量</p>
+<p>非静态内部类：只能定义非静态的成员</p>
+</li>
+<li><p>成员方法的区别</p>
+<p> 静态内部类：可以定义静态方法和非静态方法</p>
+<p>非静态内部类：只能定义非静态方法</p>
+</li>
+<li><p>非静态方法访问的区别</p>
+<p>静态内部类：可以访问内部的静态和非静态成员，但只能访问外部类的静态成员</p>
+<p>非静态内部类：可以访问内部类的非静态成员，外部的静态与非静态。</p>
+</li>
+</ol>
+</li>
+<li><p>静态代码块的特点及作用</p>
+<p> 格式：</p>
+<p>static{</p>
+<p>​    静态代码块中执行的代码</p>
+<p>}</p>
+<p>特点：随着类的加载而加载，优先于构造方法执行，并且只执行一次</p>
+<p>作用：用于给类初始化，加载驱动等</p>
+</li>
+<li><p>static修饰符使用时利弊？</p>
+<p> 利：</p>
+<ol>
+<li>静态方法被所在类所有的对象共享，没必要每个对象都存储一份，目的节省空间。</li>
+<li>可以通过类名调用，方便使用</li>
+</ol>
+<p>弊：</p>
+<ol>
+<li>静态方法随着类的加载而加载，随着类的消失而消失，生命周期较长</li>
+<li>访问出现了局部性，只能访问静态</li>
+</ol>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">development</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">keyword</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">static</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -210,17 +313,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/tatic关键字的使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/09/03/tring、StringBuilder、StringBuffer三者的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">String、StringBuilder、StringBuffer三者的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -243,8 +433,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
