@@ -154,6 +154,130 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-pring中Bean的作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/pring中Bean的作用域/">Spring中Bean的作用域</a>
+    </h1>
+  
+
+
+        
+
+        
+
+
+
+        
+        <a href="/2019/09/03/pring中Bean的作用域/" class="archive-article-date">
+  	<time datetime="2019-09-03T15:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SPring IOC容器在根据配置（可以是xml，也可以是注解）创建一个Bean对象实例时，可以为Bean指定实例的作用域。</p>
+<p>​    作用域包括：</p>
+<ul>
+<li>singleton(单例模式)</li>
+<li>prototype(原型模式)</li>
+<li>request(HTTP请求)</li>
+<li>session(会话)</li>
+<li>global session(全局会话，在spring5.x版本中已经移除了)</li>
+</ul>
+<p><strong>五种作用范围的说明</strong></p>
+<ul>
+<li><p>singleton</p>
+<ul>
+<li>使用该属性定义Bean时，IOC容器仅创建一个Bean实例，IOC容器每次返回的是同一个Bean实例</li>
+</ul>
+</li>
+<li><p>prototype</p>
+<ul>
+<li>该属性仅对HTTP请求产生作用，使用该属性可以创建多个Bean实例，每次返回的都是一个新的实例</li>
+</ul>
+</li>
+<li><p>request</p>
+<ul>
+<li>该属性仅对HTTP请求产生作用，使用该属性定义Bean时，每次HTTP请求都会创建一个新的Bean，适用于WebApplicationContext环境。</li>
+</ul>
+</li>
+<li><p>session</p>
+<ul>
+<li>该属性仅适用于HTTP Session，同一个Session共享一个Bean实例。不同Session使用不同的实例</li>
+</ul>
+<p><strong>Bean的生命周期</strong></p>
+<p>​    在实际开发中，一般常用的就是单例模式和原型模式。</p>
+<p>​    单例模式生命周期与容器相同。</p>
+<p>​    原型模式生命周期，是每次使用时创建新的对象，用完等待垃圾回收器回收。</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">framework</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/03/pring中Bean的作用域/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pring中的设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1431,179 +1555,6 @@
 
 
   
-    <article id="post-ava异常处理机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/02/ava异常处理机制/">Java异常处理机制</a>
-    </h1>
-  
-
-
-        
-
-        
-
-
-
-        
-        <a href="/2019/09/02/ava异常处理机制/" class="archive-article-date">
-  	<time datetime="2019-09-02T05:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>什么是异常</p>
-<ul>
-<li>异常指的就是程序的不正常，简单理解就是程序所发生的错误</li>
-</ul>
-</li>
-<li><p>异常的体系结构&amp;分类</p>
-<ul>
-<li>分类:<ul>
-<li>编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的</li>
-<li>运行时异常：指的是编译通过了，但运行时出现的错误</li>
-</ul>
-</li>
-<li>体系结构：<ul>
-<li>Throwable<ul>
-<li>Error:严重的错误</li>
-<li>Exception:<ul>
-<li>RuntimeException<ul>
-<li>运行时异常</li>
-</ul>
-</li>
-<li>！RuntimeException</li>
-<li>编译时异常</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>异常产生的原理：</p>
-<ul>
-<li>java对异常默认处理方式，是将问题抛出给上一级<ul>
-<li>抛出之前：java会根据错误产生异常类，创建出该类的对象，底层并通过throw关键字将异常抛出给上一级，不断向上抛出，直到抛出给JVM虚拟机，虚拟机拿到问题之后，就会将错误的原因的所在的位置，打印在控制台。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>异常的处理方式</p>
-<ul>
-<li><p>1、问题可以自己处理的</p>
-<p>try…catch处理方式：自己将问题处理掉，不会影响到后续代码的继续执行。</p>
-</li>
-<li><p>2、问题自己处理不掉的</p>
-<p>​    throws抛出处理方式:    </p>
-<p>​    如果发现问题自己无法解决，就可以通过throw关键字，将异常对象抛出给调用者，但如果使用throw抛出异常对象，则方法上面必须进行throws的声明，告知调用者此方法存在异常</p>
-<p><strong>细节：</strong>如果抛出的异常对象是RuntimeException,则方法上面无需throws声明</p>
-</li>
-</ul>
-</li>
-<li><p>常见问题</p>
-<ul>
-<li><p>Spring框架的事务默认是RuntimeException才进行回滚</p>
-</li>
-<li><p>解决方案</p>
-<ul>
-<li><p>修改Transactional注解中的rollbackFor属性可以指定exception异常回滚</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span>(rollbackFor=&#123;Exception.class&#125;)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>应用场景</p>
-<ul>
-<li>编写自定义异常，利用throw抛出自定义异常<ul>
-<li>自定义异常：其实就是一个规范的异常类名，根据异常类名能够分析出问题所在的原因</li>
-</ul>
-</li>
-<li>如何实现？<ul>
-<li>找一个类，继承Exception,或者RuntimeException即可</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>  ​        </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Exception</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/develop//" class="article-tag-list-link color3">develop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/02/ava异常处理机制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1698,14 +1649,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -1722,11 +1665,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
+                <a href="javascript:void(0)" class="js-tag color1">wait sleep</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">wait sleep</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1735,10 +1686,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Exception</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">static</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1755,6 +1702,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">static</a>
               </li>
              
               <li class="article-tag-list-item">
