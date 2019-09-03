@@ -9,14 +9,14 @@
   <title>共享锁和排他锁 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一：共享锁 共享锁(读锁)：如果事务对数据加上共享锁后，则其他事务只能对此数据再加共享锁，不能加排他锁。获准共享锁的事务只能读数据，不能修改数据。  新建表 12345create table student (	id int,    name varchar(15),    score int)  插入数据 1insert into student(id,name,score) values(1">
-<meta name="keywords" content="MySQL">
+<meta name="keywords" content="MySQL,Lock,Share and Exclude">
 <meta property="og:type" content="article">
 <meta property="og:title" content="共享锁和排他锁">
 <meta property="og:url" content="http://yoursite.com/2019/08/29/共享锁和排他锁/index.html">
 <meta property="og:site_name" content="happylin">
 <meta property="og:description" content="一：共享锁 共享锁(读锁)：如果事务对数据加上共享锁后，则其他事务只能对此数据再加共享锁，不能加排他锁。获准共享锁的事务只能读数据，不能修改数据。  新建表 12345create table student (	id int,    name varchar(15),    score int)  插入数据 1insert into student(id,name,score) values(1">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-08-29T13:54:21.374Z">
+<meta property="og:updated_time" content="2019-09-03T01:05:39.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="共享锁和排他锁">
 <meta name="twitter:description" content="一：共享锁 共享锁(读锁)：如果事务对数据加上共享锁后，则其他事务只能对此数据再加共享锁，不能加排他锁。获准共享锁的事务只能读数据，不能修改数据。  新建表 12345create table student (	id int,    name varchar(15),    score int)  插入数据 1insert into student(id,name,score) values(1">
@@ -255,6 +255,14 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Lock</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Share and Exclude</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -476,15 +484,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">TimeType</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,11 +500,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Lock</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Share and Exclude</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">development</a>
               </li>
             
             <div class="clearfix"></div>
