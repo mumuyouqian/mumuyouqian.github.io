@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Exception | happylin</title>
+  <title>wait和sleep | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="happylin的个人博客，技术总结，平时遇到的Bug">
-<meta name="keywords" content="java，python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happylin">
-<meta property="og:url" content="http://yoursite.com/tags/Exception/index.html">
+  <meta name="description" content="wait和sleep的基本使用  wait：此方法来自于Object类，必须由锁对象进行调用 sleep：此方法来自于Thread类，是Thread类的静态方法，可以类名点调用   wait方法的和sleep的原理对比  sleep 123456private static void sleepMethod() throws InteruptedException&amp;#123;    for(in">
+<meta name="keywords" content="Java,keyword,static sleep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wait和sleep">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/ait和sleep/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta property="og:description" content="wait和sleep的基本使用  wait：此方法来自于Object类，必须由锁对象进行调用 sleep：此方法来自于Thread类，是Thread类的静态方法，可以类名点调用   wait方法的和sleep的原理对比  sleep 123456private static void sleepMethod() throws InteruptedException&amp;#123;    for(in">
 <meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2019-09-03T03:45:09.385Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happylin">
-<meta name="twitter:description" content="happylin的个人博客，技术总结，平时遇到的Bug">
+<meta name="twitter:title" content="wait和sleep">
+<meta name="twitter:description" content="wait和sleep的基本使用  wait：此方法来自于Object类，必须由锁对象进行调用 sleep：此方法来自于Thread类，是Thread类的静态方法，可以类名点调用   wait方法的和sleep的原理对比  sleep 123456private static void sleepMethod() throws InteruptedException&amp;#123;    for(in">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -152,36 +153,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ait和sleep" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/02/ava异常处理机制/" class="archive-article-date">
-  	<time datetime="2019-09-02T05:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/02/ava异常处理机制/">Java异常处理机制</a>
+    <h1 class="article-title" itemprop="name">
+      wait和sleep
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+
+        
+
+        
+        <br/>
+        <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+        <span class="icon-sort"></span>
+        <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                  阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+        </span>
+        </a>
+      
+
+
+
+        
+        <a href="/2019/09/03/ait和sleep/" class="archive-article-date">
+  	<time datetime="2019-09-03T03:43:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>wait和sleep的基本使用</p>
+<ul>
+<li>wait：此方法来自于Object类，必须由锁对象进行调用</li>
+<li>sleep：此方法来自于Thread类，是Thread类的静态方法，可以类名点调用</li>
+</ul>
+</li>
+<li><p>wait方法的和sleep的原理对比</p>
+<ul>
+<li><p>sleep</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sleepMethod</span><span class="params">()</span> <span class="keyword">throws</span> InteruptedException</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        System.out.println(<span class="string">"HelloWorld"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>sleep：让当前线程休眠1000毫秒，休眠之后，程序继续执行</p>
+</li>
+<li><p>wait代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> staic <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">waitMethod</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">        Demo1.Thread.class.wait(<span class="number">1000</span>);</span><br><span class="line">        System.out.println(<span class="string">"HelloWorld"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>wait：如果使用wait()方法是传入毫秒值参数的，产生的效果和sleep方法类似</p>
+<p>​    但是wait方法较为麻烦一点，因为wait方法必须由锁对象调用，锁对象必须由notify方法对其进行唤醒。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo2_Thread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Printer p = <span class="keyword">new</span> Printer();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span>&#123;</span><br><span class="line">                        p.print1();</span><br><span class="line">                    &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line">        <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">              <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span>&#123;</span><br><span class="line">                        p.print2();</span><br><span class="line">                    &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Printer</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print1</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(Printer.class)&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag!=<span class="number">1</span>)&#123;</span><br><span class="line">                Printer.class.wait();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">            flag = <span class="number">2</span>;</span><br><span class="line">            printer.class.notify();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print2</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">         <span class="keyword">synchronized</span>(Printer.class)&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag!=<span class="number">2</span>)&#123;</span><br><span class="line">                Printer.class.wait();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"world"</span>);</span><br><span class="line">            flag = <span class="number">1</span>;</span><br><span class="line">            printer.class.notify();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<p>   <strong>总结</strong></p>
+<ul>
+<li>wait方法<ul>
+<li>空参数：会让线程进入无线等待状态，进入无线等待状态后，必须由notify方法对其进行唤醒<ul>
+<li>wait方法在等待的过程中，释放锁对象</li>
+<li>sleep方法在休眠的过程中，不会释放锁对象</li>
+</ul>
+</li>
+<li>有参数：效果跟sleep方法类似</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p>notify和notifyall</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo3_Thread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Printer p = <span class="keyword">new</span> Printer();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span>&#123;</span><br><span class="line">                        p.print1();</span><br><span class="line">                    &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line">        <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">              <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span>&#123;</span><br><span class="line">                        p.print2();</span><br><span class="line">                    &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start();</span><br><span class="line">         <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">              <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">                    <span class="keyword">try</span>&#123;</span><br><span class="line">                        p.print3();</span><br><span class="line">                    &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.start():</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Printer</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print1</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span>(Printer.class)&#123;</span><br><span class="line">            <span class="keyword">while</span>(flag!=<span class="number">1</span>)&#123;</span><br><span class="line">                Printer.class.wait();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">            flag = <span class="number">2</span>;</span><br><span class="line">            printer.class.notify();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print2</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">         <span class="keyword">synchronized</span>(Printer.class)&#123;</span><br><span class="line">            <span class="keyword">while</span>(flag!=<span class="number">2</span>)&#123;</span><br><span class="line">                Printer.class.wait();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"world"</span>);</span><br><span class="line">            flag = <span class="number">3</span>;</span><br><span class="line">            printer.class.notify();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print3</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">         <span class="keyword">synchronized</span>(Printer.class)&#123;</span><br><span class="line">            <span class="keyword">while</span>(flag!=<span class="number">3</span>)&#123;</span><br><span class="line">                Printer.class.wait();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"welcome"</span>);</span><br><span class="line">            flag = <span class="number">1</span>;</span><br><span class="line">            printer.class.notify();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>notify：随机唤醒单个线程</li>
+<li>notifyall：唤醒所有等待的线程</li>
+</ul>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,13 +254,17 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Exception</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">keyword</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">static sleep</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -210,17 +277,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/ait和sleep/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/09/03/tatic关键字的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">static关键字的使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -243,9 +397,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
