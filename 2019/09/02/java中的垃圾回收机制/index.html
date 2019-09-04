@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>HashMap和HashTable的区别 | happylin</title>
+  <title>Java中的垃圾回收机制 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相同点： 都是双列集合，一个键对应一个值 都是键不能重复，但是值可以重复   不同点 版本： HashMap是JDK1.2出现的 HashTable是JDK1.0出现的   线程同步的区别 HashMap是线程不同步的 HashTable是线程同步的   存储数据的区别 HashMap:可以存储null键和null值 HashTable:不能存储null键和null值     应用场景 双列集合">
-<meta name="keywords" content="Java,keyword,hashmap hashtable">
+  <meta name="description" content="什么样的对象会被当做垃圾回收  当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫   如何校验对象是否被回收  可以重写Object类中的finalize方法 这个方法在垃圾回收器执行的时候，被回收器自动调用执行的     怎么样通知垃圾回收器回收对象  可以调用System的静态方法gc()通知垃圾回收器去清理垃圾   如何判断哪些对象">
+<meta name="keywords" content="Java,GC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HashMap和HashTable的区别">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/ashMap和HashTable的区别/index.html">
+<meta property="og:title" content="Java中的垃圾回收机制">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/java中的垃圾回收机制/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="相同点： 都是双列集合，一个键对应一个值 都是键不能重复，但是值可以重复   不同点 版本： HashMap是JDK1.2出现的 HashTable是JDK1.0出现的   线程同步的区别 HashMap是线程不同步的 HashTable是线程同步的   存储数据的区别 HashMap:可以存储null键和null值 HashTable:不能存储null键和null值     应用场景 双列集合">
+<meta property="og:description" content="什么样的对象会被当做垃圾回收  当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫   如何校验对象是否被回收  可以重写Object类中的finalize方法 这个方法在垃圾回收器执行的时候，被回收器自动调用执行的     怎么样通知垃圾回收器回收对象  可以调用System的静态方法gc()通知垃圾回收器去清理垃圾   如何判断哪些对象">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-09-03T05:09:44.824Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/09/02/niW1vd.png">
+<meta property="og:updated_time" content="2019-09-02T15:01:06.364Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HashMap和HashTable的区别">
-<meta name="twitter:description" content="相同点： 都是双列集合，一个键对应一个值 都是键不能重复，但是值可以重复   不同点 版本： HashMap是JDK1.2出现的 HashTable是JDK1.0出现的   线程同步的区别 HashMap是线程不同步的 HashTable是线程同步的   存储数据的区别 HashMap:可以存储null键和null值 HashTable:不能存储null键和null值     应用场景 双列集合">
+<meta name="twitter:title" content="Java中的垃圾回收机制">
+<meta name="twitter:description" content="什么样的对象会被当做垃圾回收  当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫   如何校验对象是否被回收  可以重写Object类中的finalize方法 这个方法在垃圾回收器执行的时候，被回收器自动调用执行的     怎么样通知垃圾回收器回收对象  可以调用System的静态方法gc()通知垃圾回收器去清理垃圾   如何判断哪些对象">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/02/niW1vd.png">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -153,14 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ashMap和HashTable的区别" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java中的垃圾回收机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HashMap和HashTable的区别
+      Java中的垃圾回收机制
     </h1>
   
 
@@ -180,45 +182,59 @@
 
 
         
-        <a href="/2019/09/03/ashMap和HashTable的区别/" class="archive-article-date">
-  	<time datetime="2019-09-03T05:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+        <a href="/2019/09/02/java中的垃圾回收机制/" class="archive-article-date">
+  	<time datetime="2019-09-02T14:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>相同点：<ul>
-<li>都是双列集合，一个键对应一个值</li>
-<li>都是键不能重复，但是值可以重复</li>
+        <ul>
+<li><p>什么样的对象会被当做垃圾回收</p>
+<ul>
+<li>当一个对象的引用(地址)没有变量去记录的时候，该对象就会成为垃圾对象，并在垃圾回收器空闲的时候对其进行清扫</li>
 </ul>
 </li>
-<li>不同点<ol>
-<li>版本：<ul>
-<li>HashMap是JDK1.2出现的</li>
-<li>HashTable是JDK1.0出现的</li>
+<li><p>如何校验对象是否被回收</p>
+<ul>
+<li>可以重写Object类中的finalize方法<ul>
+<li>这个方法在垃圾回收器执行的时候，被回收器自动调用执行的</li>
 </ul>
 </li>
-<li>线程同步的区别<ul>
-<li>HashMap是线程不同步的</li>
-<li>HashTable是线程同步的</li>
 </ul>
 </li>
-<li>存储数据的区别<ul>
-<li>HashMap:可以存储null键和null值</li>
-<li>HashTable:不能存储null键和null值</li>
+<li><p>怎么样通知垃圾回收器回收对象</p>
+<ul>
+<li>可以调用System的静态方法gc()通知垃圾回收器去清理垃圾</li>
+</ul>
+</li>
+<li><p>如何判断哪些对象需要回收</p>
+<ol>
+<li><p>引用计数法(Java中不是使用此方法)</p>
+<p>每个对象中添加一个引用计数器，当有别人引用它的时候，计数器就会加1，当别人不引用它的时候，计数器就会减1，当计数器为0的时候对象就可以当成垃圾。算法简单，但是最大问题就是在循环引用时不能把正确对象当成垃圾</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_GC</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Demo object1 = <span class="keyword">new</span> Demo();</span><br><span class="line">        Demo object2 = <span class="keyword">new</span> Demo();</span><br><span class="line">        </span><br><span class="line">        object1.object = object2;</span><br><span class="line">        object2.object = object1;</span><br><span class="line">        </span><br><span class="line">        object1 = <span class="keyword">null</span>;</span><br><span class="line">        object2 = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根搜索算法</p>
+<p>这是JVM一般使用的算法，根搜索算法是从离散数学中的图论引入的，程序把所有的引用关系</p>
+<p>看作一张图。从一个节点GC ROOT开始，寻找对应的引用节点，找到这个节点以后，继续寻找这个节点的引用节点。当所有的引用节点寻找完毕之后，剩余的节点则被认为是没有被引用的节点，即无用的节点</p>
+<p><img src="https://s2.ax1x.com/2019/09/02/niW1vd.png" alt="niW1vd.png"></p>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>尽量不要创建很大的对象<ul>
+<li>原因：GC回收算法从来不对大对象(&gt;85000字节)堆进行压缩处理，在堆中大的内存块会浪费很多CPU时间</li>
+</ul>
+</li>
+<li>不要频繁的new声明周期很短的对象<ul>
+<li>这样频繁的垃圾回收频繁压缩可能会导致很多内存碎片</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
 </li>
-<li>应用场景<ul>
-<li>双列集合优先使用HashMap集合</li>
-<li>如果是在多线程的场景下，也无需使用HashTable集合，我们可以使用ConcurrentHashMap集合，该集合是线程同步的。</li>
-<li>HashTable集合虽然使用不多，但是它有一个给力的子类Properties类，该类还在大量使用中，一般配合IO流来加载配置文件。</li>
 </ul>
-</li>
-</ol>
 
       
 
@@ -236,11 +252,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">keyword</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hashmap hashtable</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">GC</a>
         		</li>
       		
 		</ul>
@@ -307,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/ashMap和HashTable的区别/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/02/java中的垃圾回收机制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +333,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/03/的加载机制/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/03/string、StringBuilder、StringBuffer三者的区别/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          类的加载机制
+          String、StringBuilder、StringBuffer三者的区别
         
       </div>
     </a>
   
   
-    <a href="/2019/09/03/ait和sleep/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">wait和sleep</div>
+    <a href="/2019/09/02/创建线程的几种方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">创建线程的几种方式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -455,6 +467,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -471,18 +491,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">wait sleep</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
               </li>
              
@@ -495,6 +503,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
               </li>
              
@@ -503,11 +527,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,6 +540,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">String</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">wait sleep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Servlet的生命周期和常用方法 | happylin</title>
+  <title>Java异常处理机制 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="init()方法 在Servlet的生命周期中，仅执行一次init()方法，它是在服务器装入Servlet时执行的，可以配置服务器，以在启动服务器或客户机首次访问Servlet时装入Servlet。无论有多少客户机访问Servlet，都不会重复执行init();  service() 它是Servlet的核心，每当一个客户机请求一个HttpServlet对象，该对象的Service()方法就要">
-<meta name="keywords" content="JavaWeb,servlet">
+  <meta name="description" content="什么是异常  异常指的就是程序的不正常，简单理解就是程序所发生的错误   异常的体系结构&amp;amp;分类  分类: 编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的 运行时异常：指的是编译通过了，但运行时出现的错误   体系结构： Throwable Error:严重的错误 Exception: RuntimeExc">
+<meta name="keywords" content="Java,Exception">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Servlet的生命周期和常用方法">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/ervlet的生命周期和常用方法/index.html">
+<meta property="og:title" content="Java异常处理机制">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/java异常处理机制/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="init()方法 在Servlet的生命周期中，仅执行一次init()方法，它是在服务器装入Servlet时执行的，可以配置服务器，以在启动服务器或客户机首次访问Servlet时装入Servlet。无论有多少客户机访问Servlet，都不会重复执行init();  service() 它是Servlet的核心，每当一个客户机请求一个HttpServlet对象，该对象的Service()方法就要">
+<meta property="og:description" content="什么是异常  异常指的就是程序的不正常，简单理解就是程序所发生的错误   异常的体系结构&amp;amp;分类  分类: 编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的 运行时异常：指的是编译通过了，但运行时出现的错误   体系结构： Throwable Error:严重的错误 Exception: RuntimeExc">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nAnew8.png">
-<meta property="og:updated_time" content="2019-09-03T11:51:40.526Z">
+<meta property="og:updated_time" content="2019-09-02T05:23:01.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Servlet的生命周期和常用方法">
-<meta name="twitter:description" content="init()方法 在Servlet的生命周期中，仅执行一次init()方法，它是在服务器装入Servlet时执行的，可以配置服务器，以在启动服务器或客户机首次访问Servlet时装入Servlet。无论有多少客户机访问Servlet，都不会重复执行init();  service() 它是Servlet的核心，每当一个客户机请求一个HttpServlet对象，该对象的Service()方法就要">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/03/nAnew8.png">
+<meta name="twitter:title" content="Java异常处理机制">
+<meta name="twitter:description" content="什么是异常  异常指的就是程序的不正常，简单理解就是程序所发生的错误   异常的体系结构&amp;amp;分类  分类: 编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的 运行时异常：指的是编译通过了，但运行时出现的错误   体系结构： Throwable Error:严重的错误 Exception: RuntimeExc">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -155,14 +153,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ervlet的生命周期和常用方法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java异常处理机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Servlet的生命周期和常用方法
+      Java异常处理机制
     </h1>
   
 
@@ -182,36 +180,92 @@
 
 
         
-        <a href="/2019/09/03/ervlet的生命周期和常用方法/" class="archive-article-date">
-  	<time datetime="2019-09-03T11:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+        <a href="/2019/09/02/java异常处理机制/" class="archive-article-date">
+  	<time datetime="2019-09-02T05:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://s2.ax1x.com/2019/09/03/nAnew8.png" alt="nAnew8.png"></p>
-<ol>
-<li><p>init()方法</p>
-<p>在Servlet的生命周期中，仅执行一次init()方法，它是在服务器装入Servlet时执行的，可以配置服务器，以在启动服务器或客户机首次访问Servlet时装入Servlet。无论有多少客户机访问Servlet，都不会重复执行init();</p>
-</li>
-<li><p>service()</p>
-<p>它是Servlet的核心，每当一个客户机请求一个HttpServlet对象，该对象的Service()方法就要调用，而且传递给这个方法一个“请求”（ServletRequest）对象和一个“响应”（ServletResponse）对象作为参数。在HttpServlet中已存在Service()方法。默认的服务功能是调用与HTTP请求的方法相应的do功能。</p>
-</li>
-<li><p>destroy()方法</p>
-<p>仅执行一次，在服务器端停止且卸载Servlet时执行的方法，有点类似于C++的delete方法。一个Servlet在运行service()方法时可能会产生其它的线程，因此需要确认在调用destroy()方法时，这些线程已经终止或完成。</p>
-</li>
-</ol>
-<p><strong>如何解决servlet线程安全：</strong></p>
+        <ul>
+<li><p>什么是异常</p>
 <ul>
-<li>第一种，继承SingleThreadModel但是这样每次都会创建一个新的servlet实例，但这样消耗服务器的内存，降低了性能，并且这个接口现在已经过时了，不推荐使用 </li>
-<li>第二种，我们尽量避免使用全局变量，就我个人而言，比较喜欢使用这种方法</li>
-<li>第三种，我们可以通过使用ThreadLocal,内部结构是一个Map结构，用当前线程作为key，它会创建多个副本。get，set方法</li>
-<li>第四种，我们当然还可以来加锁，进行解决线程问题。<ul>
-<li>常用的MVC框架，structs1，springMVC这些MVC框架，都是基于servlet发展而来的，就比如structs1的核心总控制器是ActionServlet，而springMVC的前端总控制器就是dispatcherServlet，在项目中我们曾用servlet来生成图片验证码的，防止用户进行暴力破解。</li>
+<li>异常指的就是程序的不正常，简单理解就是程序所发生的错误</li>
+</ul>
+</li>
+<li><p>异常的体系结构&amp;分类</p>
+<ul>
+<li>分类:<ul>
+<li>编译时异常：指的就是编译期间，编译器检测到某段代码可能会发生某些问题，需要程序员提前给代码做出错误的解决方案，否则编译是不会通过的</li>
+<li>运行时异常：指的是编译通过了，但运行时出现的错误</li>
+</ul>
+</li>
+<li>体系结构：<ul>
+<li>Throwable<ul>
+<li>Error:严重的错误</li>
+<li>Exception:<ul>
+<li>RuntimeException<ul>
+<li>运行时异常</li>
+</ul>
+</li>
+<li>！RuntimeException</li>
+<li>编译时异常</li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>异常产生的原理：</p>
+<ul>
+<li>java对异常默认处理方式，是将问题抛出给上一级<ul>
+<li>抛出之前：java会根据错误产生异常类，创建出该类的对象，底层并通过throw关键字将异常抛出给上一级，不断向上抛出，直到抛出给JVM虚拟机，虚拟机拿到问题之后，就会将错误的原因的所在的位置，打印在控制台。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>异常的处理方式</p>
+<ul>
+<li><p>1、问题可以自己处理的</p>
+<p>try…catch处理方式：自己将问题处理掉，不会影响到后续代码的继续执行。</p>
+</li>
+<li><p>2、问题自己处理不掉的</p>
+<p>​    throws抛出处理方式:    </p>
+<p>​    如果发现问题自己无法解决，就可以通过throw关键字，将异常对象抛出给调用者，但如果使用throw抛出异常对象，则方法上面必须进行throws的声明，告知调用者此方法存在异常</p>
+<p><strong>细节：</strong>如果抛出的异常对象是RuntimeException,则方法上面无需throws声明</p>
+</li>
+</ul>
+</li>
+<li><p>常见问题</p>
+<ul>
+<li><p>Spring框架的事务默认是RuntimeException才进行回滚</p>
+</li>
+<li><p>解决方案</p>
+<ul>
+<li><p>修改Transactional注解中的rollbackFor属性可以指定exception异常回滚</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span>(rollbackFor=&#123;Exception.class&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>编写自定义异常，利用throw抛出自定义异常<ul>
+<li>自定义异常：其实就是一个规范的异常类名，根据异常类名能够分析出问题所在的原因</li>
+</ul>
+</li>
+<li>如何实现？<ul>
+<li>找一个类，继承Exception,或者RuntimeException即可</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>  ​        </p>
 
       
 
@@ -225,11 +279,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaWeb</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">servlet</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Exception</a>
         		</li>
       		
 		</ul>
@@ -296,7 +350,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/ervlet的生命周期和常用方法/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/02/java异常处理机制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +364,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/03/pring中的设计模式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/02/创建线程的几种方式/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spring中的设计模式
+          创建线程的几种方式
         
       </div>
     </a>
   
   
-    <a href="/2019/09/03/的加载机制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">类的加载机制</div>
+    <a href="/2019/08/29/共享锁和排他锁/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">共享锁和排他锁</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -444,6 +498,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -460,18 +522,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">wait sleep</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
               </li>
              
@@ -484,6 +534,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
               </li>
              
@@ -492,11 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,6 +571,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">String</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">wait sleep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>String、StringBuilder、StringBuffer三者的区别 | happylin</title>
+  <title>HashMap和HashTable的区别 | happylin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="String和StringBuilder的本质区别  String是一个不可改变的字符序列 1234String s = &quot;abc&quot;;//这一步是记录了一个新的对象地址，&quot;abc&quot;内部的数据根本就没有发生改变s = &quot;def&quot;;System.out.println(s);  StringBuilder是一个可以改变的字符序列 123StringBuilder sb = new StringBui">
-<meta name="keywords" content="Java,String">
+  <meta name="description" content="相同点： 都是双列集合，一个键对应一个值 都是键不能重复，但是值可以重复   不同点 版本： HashMap是JDK1.2出现的 HashTable是JDK1.0出现的   线程同步的区别 HashMap是线程不同步的 HashTable是线程同步的   存储数据的区别 HashMap:可以存储null键和null值 HashTable:不能存储null键和null值     应用场景 双列集合">
+<meta name="keywords" content="Java,keyword,hashmap hashtable">
 <meta property="og:type" content="article">
-<meta property="og:title" content="String、StringBuilder、StringBuffer三者的区别">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/tring、StringBuilder、StringBuffer三者的区别/index.html">
+<meta property="og:title" content="HashMap和HashTable的区别">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/hashMap和HashTable的区别/index.html">
 <meta property="og:site_name" content="happylin">
-<meta property="og:description" content="String和StringBuilder的本质区别  String是一个不可改变的字符序列 1234String s = &quot;abc&quot;;//这一步是记录了一个新的对象地址，&quot;abc&quot;内部的数据根本就没有发生改变s = &quot;def&quot;;System.out.println(s);  StringBuilder是一个可以改变的字符序列 123StringBuilder sb = new StringBui">
+<meta property="og:description" content="相同点： 都是双列集合，一个键对应一个值 都是键不能重复，但是值可以重复   不同点 版本： HashMap是JDK1.2出现的 HashTable是JDK1.0出现的   线程同步的区别 HashMap是线程不同步的 HashTable是线程同步的   存储数据的区别 HashMap:可以存储null键和null值 HashTable:不能存储null键和null值     应用场景 双列集合">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nFZ3SP.png">
-<meta property="og:image" content="https://s2.ax1x.com/2019/09/03/nFZ8Qf.png">
-<meta property="og:updated_time" content="2019-09-03T01:01:57.578Z">
+<meta property="og:updated_time" content="2019-09-03T05:09:44.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="String、StringBuilder、StringBuffer三者的区别">
-<meta name="twitter:description" content="String和StringBuilder的本质区别  String是一个不可改变的字符序列 1234String s = &quot;abc&quot;;//这一步是记录了一个新的对象地址，&quot;abc&quot;内部的数据根本就没有发生改变s = &quot;def&quot;;System.out.println(s);  StringBuilder是一个可以改变的字符序列 123StringBuilder sb = new StringBui">
-<meta name="twitter:image" content="https://s2.ax1x.com/2019/09/03/nFZ3SP.png">
+<meta name="twitter:title" content="HashMap和HashTable的区别">
+<meta name="twitter:description" content="相同点： 都是双列集合，一个键对应一个值 都是键不能重复，但是值可以重复   不同点 版本： HashMap是JDK1.2出现的 HashTable是JDK1.0出现的   线程同步的区别 HashMap是线程不同步的 HashTable是线程同步的   存储数据的区别 HashMap:可以存储null键和null值 HashTable:不能存储null键和null值     应用场景 双列集合">
   
     <link rel="alternative" href="/atom.xml" title="happylin" type="application/atom+xml">
   
@@ -156,14 +153,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-tring、StringBuilder、StringBuffer三者的区别" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hashMap和HashTable的区别" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      String、StringBuilder、StringBuffer三者的区别
+      HashMap和HashTable的区别
     </h1>
   
 
@@ -183,8 +180,8 @@
 
 
         
-        <a href="/2019/09/03/tring、StringBuilder、StringBuffer三者的区别/" class="archive-article-date">
-  	<time datetime="2019-09-03T00:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+        <a href="/2019/09/03/hashMap和HashTable的区别/" class="archive-article-date">
+  	<time datetime="2019-09-03T05:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
 </a>
         
       </header>
@@ -192,40 +189,33 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p><strong>String和StringBuilder的本质区别</strong></p>
-<ol>
-<li><p>String是一个不可改变的字符序列</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"abc"</span>;</span><br><span class="line"><span class="comment">//这一步是记录了一个新的对象地址，"abc"内部的数据根本就没有发生改变</span></span><br><span class="line">s = <span class="string">"def"</span>;</span><br><span class="line">System.out.println(s);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>StringBuilder是一个可以改变的字符序列</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder(<span class="string">"aaaaabbbbbccccc"</span>);</span><br><span class="line">sb.delete(<span class="number">0</span>,<span class="number">2</span>);</span><br><span class="line">System.out.println(sb);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>常见的字符串拼接，该选择谁</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo_StringBuilder</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> start = System.currentTimeMills();</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=<span class="number">100000</span>;i++)&#123;</span><br><span class="line">        sb.append(i);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(sb);</span><br><span class="line">    <span class="keyword">long</span> end = System.currentTimeMills();</span><br><span class="line">    System.out.println(end-start);   <span class="comment">//47</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getStringResult</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> start = System.currentTimeMills();</span><br><span class="line">    String s = <span class="string">" "</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i&lt;=<span class="number">100000</span>;i++)&#123;</span><br><span class="line">        s+=i;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(s);</span><br><span class="line">    <span class="keyword">long</span> end = System.currentTimeMills();</span><br><span class="line">    System.out.println(end-start);   <span class="comment">//13526</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>推荐使用的是StringBuilder,因为拼接的效率高</p>
-<ul>
-<li><p>String拼接的效率为什么这么慢？</p>
-<ul>
-<li>因为字符串在用”+“号做拼接的时候，每一次都会产生新的字符串<br><img src="https://s2.ax1x.com/2019/09/03/nFZ3SP.png" alt="nFZ3SP.png"></li>
-<li>StringBulder无论拼接多少个字符串，都只会产生两个对象<br><img src="https://s2.ax1x.com/2019/09/03/nFZ8Qf.png" alt="nFZ8Qf.png"></li>
+<li>相同点：<ul>
+<li>都是双列集合，一个键对应一个值</li>
+<li>都是键不能重复，但是值可以重复</li>
 </ul>
 </li>
+<li>不同点<ol>
+<li>版本：<ul>
+<li>HashMap是JDK1.2出现的</li>
+<li>HashTable是JDK1.0出现的</li>
 </ul>
 </li>
-<li><p>如果在业务层去拼接sql，该使用什么类型去接收？</p>
-<ul>
-<li>如果SQL语句拼接的内容较少的话，可以使用String拼接</li>
-<li>但如果SQL语句拼接的内容较多，就应该使用StringBuilder</li>
+<li>线程同步的区别<ul>
+<li>HashMap是线程不同步的</li>
+<li>HashTable是线程同步的</li>
+</ul>
+</li>
+<li>存储数据的区别<ul>
+<li>HashMap:可以存储null键和null值</li>
+<li>HashTable:不能存储null键和null值</li>
 </ul>
 </li>
 </ol>
 </li>
-<li><p><strong>StringBuilder和StringBuffer的区别</strong></p>
-<ul>
-<li>StringBuffer和StringBuilder的功能时完全一致的</li>
-<li>StringBuffer是jdk1.0出现的，线程安全，效率低</li>
-<li>StringBuilder是jdk1.5出现的，线程不安全，效率高</li>
+<li>应用场景<ul>
+<li>双列集合优先使用HashMap集合</li>
+<li>如果是在多线程的场景下，也无需使用HashTable集合，我们可以使用ConcurrentHashMap集合，该集合是线程同步的。</li>
+<li>HashTable集合虽然使用不多，但是它有一个给力的子类Properties类，该类还在大量使用中，一般配合IO流来加载配置文件。</li>
 </ul>
 </li>
 </ol>
@@ -246,7 +236,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">keyword</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">hashmap hashtable</a>
         		</li>
       		
 		</ul>
@@ -313,7 +307,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/tring、StringBuilder、StringBuffer三者的区别/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/hashMap和HashTable的区别/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,18 +321,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/03/tatic关键字的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/03/的加载机制/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          static关键字的使用
+          类的加载机制
         
       </div>
     </a>
   
   
-    <a href="/2019/09/02/ava中的垃圾回收机制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java中的垃圾回收机制</div>
+    <a href="/2019/09/03/wait和sleep/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">wait和sleep</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -461,6 +455,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -477,18 +479,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">wait sleep</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
               </li>
              
@@ -501,6 +491,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
               </li>
              
@@ -509,11 +515,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">framework</a>
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,6 +528,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">String</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">wait sleep</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
