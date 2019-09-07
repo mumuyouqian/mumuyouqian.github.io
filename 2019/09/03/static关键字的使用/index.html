@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="happylin">
 <meta property="og:description" content="static可以修饰什么？  可以修饰成员变量、成员方法、内部类 不可以修饰局部变量，原因：静态成员是属于类的，不属于方法的   static关键字的特点  静态成员被所在类的对象共享  静态成员可以通过类名进行调用  静态成员随着类的加载而加载  静态成员优先于对象存在 注意事项：先进内存的不能调用后进内存的    static方法访问的特点  静态方法只能调用静态成员(静态成员变量、静态成员">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-09-03T02:04:44.119Z">
+<meta property="og:updated_time" content="2019-09-05T04:35:35.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="static关键字的使用">
 <meta name="twitter:description" content="static可以修饰什么？  可以修饰成员变量、成员方法、内部类 不可以修饰局部变量，原因：静态成员是属于类的，不属于方法的   static关键字的特点  静态成员被所在类的对象共享  静态成员可以通过类名进行调用  静态成员随着类的加载而加载  静态成员优先于对象存在 注意事项：先进内存的不能调用后进内存的    static方法访问的特点  静态方法只能调用静态成员(静态成员变量、静态成员">
@@ -226,7 +226,7 @@
 <ol>
 <li><p>private修饰的方法不能被重写，private修饰的成员变量只能在本类中访问</p>
 </li>
-<li><p>静态的方法可以被继承，但是不能被重写。如果父类中有一个静态的方法，子类也有一个与其方法名、参数列表相同的方法，那么该子类的方法会把原来继承过来的父类的方法隐藏，为不是重写。通俗来讲就是父类的方法和子类的方法是两个没有关系的方法。</p>
+<li><p>静态的方法可以被继承，但是不能被重写。如果父类中有一个静态的方法，子类也有一个与其方法名、参数列表相同的方法，那么该子类的方法会把原来继承过来的父类的方法隐藏，并不是重写。通俗来讲就是父类的方法和子类的方法是两个没有关系的方法。</p>
 <p><strong>注意事项：</strong>静态方法中不能使用this关键字 原因：this代表对象，类优先于对象存在，所以静态方法随着类的加载而加载，也就是说静态成员优先于对象存在，所以静态方法不能使用this关键字。</p>
 </li>
 </ol>
@@ -509,14 +509,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -529,19 +521,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">keyword</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,15 +545,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
+                <a href="javascript:void(0)" class="js-tag color3">keyword</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+                <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +569,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">static</a>
+                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,7 +581,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,7 +593,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">static</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">

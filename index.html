@@ -738,7 +738,7 @@
 <p>这个也很明显，在各种BeanFactory以及ApplicationContext实现中也都用到了。</p>
 </li>
 <li><p>代理模式</p>
-<p>在App实现中用到了JDK动态代理</p>
+<p>在Aop实现中用到了JDK动态代理</p>
 </li>
 <li><p>单例模式</p>
 <p>这个比如在创建Bean的时候</p>
@@ -1016,7 +1016,7 @@
 </li>
 <li><p>JVM的类加载机制</p>
 <ul>
-<li>全盘负责：就是当一个类加载器负责加载某个Class时，该Class所依赖的和引用的其它Class也将由该类加载器负责载入，除非显式使用另外一个类加载起来载入</li>
+<li>全盘负责：就是当一个类加载器负责加载某个Class时，该Class所依赖的和引用的其它Class也将由该类加载器负责载入，除非显式使用另外一个类加载器来载入</li>
 <li>父类委托：就是当一个类加载器负责某个Class时，先让父类加载器试图加载该Class，只有在父类加载器无法加载该类时才尝试从自己的类路径中加载该类</li>
 <li>缓存机制：保证所有加载过的Class都会被缓存，当程序需要使用某个Class对象时，类加载器先从缓存中搜索该Class，只有当缓存区中不存在该Class对象时，系统才会读取该类对应的二进制数据，并将其转换成Class对象，存储到缓存区。</li>
 </ul>
@@ -1436,7 +1436,7 @@
 <ol>
 <li><p>private修饰的方法不能被重写，private修饰的成员变量只能在本类中访问</p>
 </li>
-<li><p>静态的方法可以被继承，但是不能被重写。如果父类中有一个静态的方法，子类也有一个与其方法名、参数列表相同的方法，那么该子类的方法会把原来继承过来的父类的方法隐藏，为不是重写。通俗来讲就是父类的方法和子类的方法是两个没有关系的方法。</p>
+<li><p>静态的方法可以被继承，但是不能被重写。如果父类中有一个静态的方法，子类也有一个与其方法名、参数列表相同的方法，那么该子类的方法会把原来继承过来的父类的方法隐藏，并不是重写。通俗来讲就是父类的方法和子类的方法是两个没有关系的方法。</p>
 <p><strong>注意事项：</strong>静态方法中不能使用this关键字 原因：this代表对象，类优先于对象存在，所以静态方法随着类的加载而加载，也就是说静态成员优先于对象存在，所以静态方法不能使用this关键字。</p>
 </li>
 </ol>
@@ -1649,14 +1649,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
@@ -1669,19 +1661,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">keyword</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">GC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Dubbo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1697,15 +1685,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Exception</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
+                <a href="javascript:void(0)" class="js-tag color3">keyword</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+                <a href="javascript:void(0)" class="js-tag color3">hashmap hashtable</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1717,11 +1709,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">static</a>
+                <a href="javascript:void(0)" class="js-tag color3">JavaWeb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1729,7 +1721,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1741,7 +1733,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">static</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
               </li>
              
               <li class="article-tag-list-item">
